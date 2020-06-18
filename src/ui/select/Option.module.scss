@@ -1,0 +1,26 @@
+@import '../constants';
+
+$borderWidth: 0.1rem;
+
+.Option {
+  height: $inputHeight;
+  background-color: #ffffff;
+  padding: 0 $inputLeftAndRightPadding / 4;
+  margin: 0 auto;
+  width: calc(100% - #{$inputHeight});
+  border: $borderWidth solid transparent;
+
+  &:hover {
+    background-color: rgb(212, 212, 212);
+  }
+}
+
+.text {
+  color: #333333;
+  font-size: 1.125rem;
+  line-height: $inputHeight;
+
+  &.default {
+    color: #cccccc;
+  }
+}

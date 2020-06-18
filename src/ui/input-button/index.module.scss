@@ -1,0 +1,26 @@
+%boxShadow {
+  box-shadow: 0 0.688rem 2.688rem rgba(98, 143, 144, 0.15);
+}
+
+.InputButton {
+  display: flex;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  border-right: 0;
+  border: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  @extend %boxShadow
+}
+
+.button {
+  width: 50%;
+  border-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  box-shadow: 0 0.688rem 2.688rem rgba(98, 143, 144, 0.15);
+  @extend %boxShadow
+}

@@ -1,0 +1,20 @@
+@import "../constants";
+
+.Indicator {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: #cccccc;
+  width: $inputHeight / 2;
+  height: $inputHeight;
+  border-radius: 100% 0 0 100% / 50% 0 0 50%;
+
+  &.success {
+    background-color: #ff9933;
+  }
+
+  &.error {
+    background-color: #ee2e24;
+  }
+}

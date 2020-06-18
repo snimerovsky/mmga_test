@@ -1,0 +1,12 @@
+.Checkbox-Container {
+  font-size: 1.125rem;
+  display: flex;
+  .ant-checkbox {
+    margin-right: 1rem;
+    & > input {
+      display: block;
+      height: 1.6rem;
+      width: 1.55rem;
+    }
+  }
+}

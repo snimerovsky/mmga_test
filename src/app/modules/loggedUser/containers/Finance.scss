@@ -1,0 +1,253 @@
+@import '../../../variabales.scss';
+
+$innerPadding: 15px 20px;
+
+.ant-modal-content {
+  border-radius: 20px;
+}
+
+.ant-modal-content > .ant-modal-footer {
+  display: none;
+}
+
+.ant-modal-content > .ant-modal-close {
+  display: none;
+}
+
+.Finance-Container {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  .user-wrapper {
+    padding: 0 50px;
+  }
+
+  &_ModalContainer {
+    position: relative;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    h3 {
+      font-size: 36px;
+    }
+
+    &_Close-Button {
+      position: absolute;
+      display: flex;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      top: -50px;
+      right: -5px;
+      background-color: $blue;
+      align-items: center;
+      justify-content: center;
+      svg {
+        width: 30px;
+        height: 30px;
+        fill: #fff;
+      }
+    }
+
+    &_Svg {
+      margin: 30px 0;
+      svg {
+        fill: $green;
+        height: 70px;
+        width: 70px;
+      }
+    }
+
+    &_Input-Wrapper {
+      max-width: 290px;
+      & > span {
+        display: block;
+        margin-bottom: 10px;
+      }
+      &_Sum {
+        margin: 20px 0;
+      }
+    }
+
+    &_Purchase {
+      width: 100%;
+      margin-bottom: 30px;
+
+      & > img {
+        &:not(:last-child) {
+          margin-right: 31px;
+        }
+      }
+    }
+  }
+
+  &_Header {
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+
+    &__active {
+      color: $blue;
+    }
+    &_Curse {
+      color: #000;
+      margin-left: 15px;
+    }
+    &_Button {
+      background-color: $green;
+      color: #fff;
+      border: none;
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $green;
+        color: #fff;
+        border: none;
+      }
+    }
+  }
+
+  &_Plans {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .ant-col:nth-child(2n) {
+      @media screen and (max-width: 1600px) {
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 20px;
+      }
+    }
+
+    .ant-col:nth-child(2n-1) {
+      @media screen and (max-width: 1600px) {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 20px;
+      }
+    }
+
+    &_Item {
+      margin-top: 20px;
+      text-align: center;
+
+      @include shadowBox;
+      border-radius: 15px;
+      width: 210px;
+      overflow: hidden;
+      &_Header {
+        color: #fff;
+        font-size: 18px;
+        padding: $innerPadding;
+        height: 48px;
+        align-items: center;
+
+        &.base {
+          background-color: $lightgrey;
+          color: #565656;
+        }
+        &.opt {
+          background-color: $orange;
+        }
+        &.pro {
+          background-color: $inactive;
+        }
+        &.prof {
+          // font-size: 14px;
+          background-color: $blue;
+        }
+      }
+      &_Container {
+        padding: 15px 0 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        & > div {
+          padding: $innerPadding;
+          position: relative;
+          &:not(:first-child)::after {
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            content: '';
+            width: 40px;
+            height: 1px;
+            background-color: $lightgrey;
+          }
+        }
+        &_Monthes {
+          h3 {
+            font-size: 24px;
+          }
+          span {
+            font-size: 16px;
+            color: #a6a6a6;
+          }
+        }
+
+        &_Garantee {
+          font-size: 16px;
+          display: flex;
+          flex-direction: column;
+
+          &_Subscribers {
+            color: #000;
+          }
+          &__active {
+            color: $red;
+            margin-bottom: 5px;
+          }
+          &__status {
+            margin-bottom: 5px;
+            color: #000;
+          }
+        }
+        &_Tokens {
+          display: flex;
+          flex-direction: column;
+          font-size: 16px;
+          &__active {
+            color: $blue;
+          }
+        }
+        &_Button {
+          background-color: $red;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 150px;
+          border: none;
+          svg {
+            margin-right: 10px;
+            fill: #fff;
+            width: 20px;
+            height: 20px;
+          }
+
+          &:hover,
+          &:active,
+          &:focus {
+            background-color: $red;
+            color: #fff;
+            border: none;
+          }
+        }
+      }
+    }
+  }
+
+  &_Bottom {
+    margin-top: 40px;
+    font-size: 16px;
+    &__text {
+      margin: 0 6px;
+    }
+  }
+}

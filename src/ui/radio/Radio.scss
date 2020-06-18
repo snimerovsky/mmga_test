@@ -1,0 +1,14 @@
+.Radio-Container {
+  display: flex;
+  justify-content: space-between;
+
+  .ant-radio-input {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+  .ant-radio-wrapper {
+    font-size: 1.125rem;
+    display: flex;
+    align-items: center;
+  }
+}

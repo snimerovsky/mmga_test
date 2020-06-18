@@ -1,0 +1,87 @@
+@import "../constants";
+
+$errorTextColor: #ee2e24;
+
+.Container {
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+}
+
+.field {
+  $arrowBoxSize: $inputHeight * 0.8;
+  #arrowImgBox {
+    width: 19px;
+    height: 11px;
+  }
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: $inputHeight;
+  padding: 0 $inputLeftAndRightPadding;
+  border-radius: $inputHeight / 2;
+  border: 0.0625rem solid #cccccc;
+  background-color: #ffffff;
+
+  .arrow {
+    position: absolute;
+    top: calc((100% - #{$arrowBoxSize}) / 2);
+    left: calc(100% - #{$arrowBoxSize + 0.5rem});
+    z-index: 10;
+    width: $arrowBoxSize;
+    height: $arrowBoxSize;
+    border-radius: $arrowBoxSize / 2;
+    background-color: #2b64b0;
+    transition: transform 0.2s;
+
+    &.arrowDisabled {
+      background-color: #cccccc;
+    }
+
+    &:after {
+      position: absolute;
+      top: 10px;
+      left: 5px;
+      content: "";
+      background-image: url("../../styles/sources/images/arrow-down.svg");
+      background-repeat: no-repeat;
+      @extend #arrowImgBox;
+    }
+
+    &.opened {
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+.text {
+  color: #333333;
+  font-size: 1.125rem;
+  line-height: $inputHeight;
+
+  &.default {
+    color: #cccccc;
+  }
+}
+
+.options {
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+
+.fieldError {
+  border: 0.0625rem solid $errorTextColor;
+}
+
+.fieldDisabled {
+  cursor: not-allowed;
+}
+
+.errorText {
+  position: absolute;
+  font-size: 1.125rem;
+  color: $errorTextColor;
+  top: $inputHeight + 0.5rem;
+  left: $inputHeight / 2;
+}

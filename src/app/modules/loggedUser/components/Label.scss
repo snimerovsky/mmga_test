@@ -1,0 +1,17 @@
+@import '../../../variabales.scss';
+
+.Label-Container {
+  font-size: 18px;
+  padding: 30px 0;
+  display: flex;
+  position: relative;
+  &_Text {
+    position: relative;
+    top: 3px;
+    margin-right: 10px;
+  }
+  &_Border {
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+  }
+}

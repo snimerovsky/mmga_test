@@ -1,0 +1,40 @@
+%animate {
+  transition-property: color;
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
+}
+
+.AuthorizationPage {
+  padding: 0 15% 0 15%;
+}
+
+.tabs {
+  display: flex;
+  font-size: 3rem;
+  margin-top: 6.25rem;
+  font-family: "ProximaNova-Bold";
+}
+
+.tabItem {
+  cursor: pointer;
+  color: #ffffff;
+  @extend %animate;
+
+  &:not(:first-child) {
+    margin-left: 3.4375rem;
+  }
+
+  &.active {
+    color: #222222;
+  }
+  &.hidden {
+    visibility: hidden;
+  }
+  &.center {
+    margin-left: -20px;
+  }
+}
+
+.formWrapper {
+  margin-top: 2.5rem;
+}

@@ -1,0 +1,11 @@
+$wrapper: 72rem;
+$red: #ee2e24;
+$blue: #2b64b0;
+$green: #abd029;
+$orange: #fbae44;
+$inactive: #3b9cd6;
+$lightgrey: #cccccc;
+
+@mixin shadowBox {
+  box-shadow: 0 0 10px 1px rgba($color: #4b4a4a, $alpha: 0.65);
+}

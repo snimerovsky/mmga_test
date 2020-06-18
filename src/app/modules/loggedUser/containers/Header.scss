@@ -1,0 +1,103 @@
+@import '../../../variabales.scss';
+
+.Header-Container {
+  display: flex;
+  justify-content: space-between;
+  .Header_Avatar-Container {
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    box-shadow: 0 0 10px 1px rgba($color: #4b4a4a, $alpha: 0.65);
+    background-color: #efefef;
+    padding: 22px 20px 22px 22px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 600px;
+
+    &_Wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      &_Label {
+        left: 110px;
+        top: 0;
+        position: absolute;
+        padding: 8px 25px;
+        color: #fff;
+        font-size: 16px;
+        background-color: $green;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+      }
+    }
+
+    &_Img {
+      margin-right: 50px;
+    }
+
+    &_Text {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      height: 46px;
+      //   align-items: center;
+      color: #333;
+      text-align: right;
+      & > span:first-child {
+        margin-bottom: 12px;
+      }
+    }
+    &_Name {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    &_SimpleText {
+      font-size: 16px;
+    }
+
+    &_Right {
+      display: flex;
+      align-items: center;
+      margin-left: 65px;
+      svg {
+        cursor: pointer;
+        margin-left: 30px;
+        width: 27px;
+        height: 27px;
+        fill: $inactive;
+      }
+    }
+
+    &_Logout {
+      border-radius: 50%;
+      background-color: $inactive;
+      padding: 13px;
+      margin-left: 30px;
+      height: 55px;
+      width: 55px;
+      cursor: pointer;
+      svg {
+        width: 25px;
+        height: 25px;
+        fill: #fff;
+        margin-left: 4px;
+      }
+    }
+  }
+  .Header-Button {
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    height: 40px;
+    svg {
+      width: 18px;
+      height: 18px;
+      margin-right: 10px;
+      fill: #fff;
+    }
+  }
+}

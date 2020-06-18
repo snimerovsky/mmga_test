@@ -1,0 +1,35 @@
+@import '../../../variabales.scss';
+
+.PrivateSettings-Container {
+  height: 100%;
+  background-color: #fff;
+  .user-wrapper {
+    padding-top: 40px;
+  }
+  &_Item {
+    display: flex;
+    margin-bottom: 25px;
+
+    input {
+      font-size: 18px;
+    }
+    button,
+    button:focus {
+      margin-left: 15px;
+      background-color: $blue;
+      color: #fff;
+      &:hover,
+      &:active,
+      &.active {
+        background-color: $orange;
+        color: #fff;
+        border: none;
+      }
+    }
+
+    label {
+      width: 240px;
+      font-size: 18px;
+    }
+  }
+}

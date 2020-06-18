@@ -1,0 +1,90 @@
+@import '../../../variabales.scss';
+
+.WarningPopover-Container {
+  color: $red;
+  font-size: 18px;
+  line-height: 20px;
+  max-width: 300px;
+  text-align: center;
+  padding: 10px;
+}
+
+.ant-popover-inner {
+  border-radius: 20px !important;
+}
+
+.Tasks-Container {
+  background-color: #fff;
+
+  &_No-Tasks {
+    margin-top: 60px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+  }
+
+  &_Container {
+    padding: 0 40px;
+    &_Header {
+      padding: 30px 0;
+      display: flex;
+      position: relative;
+      &_Text {
+        position: relative;
+        top: 7px;
+      }
+      &_NewTasks {
+        display: flex;
+        padding-bottom: 40px;
+        &_Text {
+          position: relative;
+          top: 10px;
+          padding: 0 10px;
+        }
+      }
+      &_Text {
+        margin-right: 10px;
+        font-size: 18px;
+      }
+      &_Border {
+        flex: 1;
+        border-bottom: 1px solid #000;
+      }
+    }
+
+    &_ProgresBar {
+      margin-top: 10px;
+      margin-bottom: 40px;
+    }
+
+    &_Progress-Warning {
+      margin-top: 80px;
+    }
+    &_Pictures {
+      width: auto !important;
+      position: relative;
+      &_Item {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        &_Picture {
+          height: 140px;
+          width: 140px;
+          background-color: grey;
+        }
+      }
+    }
+  }
+
+  .Tasks-Container_Container_Pictures_Button {
+    font-weight: bold;
+    height: 45px;
+    font-size: 18px;
+    position: relative;
+    right: -50%;
+    transform: translateX(-50%);
+    margin: 42px 0;
+    width: 230px;
+  }
+}

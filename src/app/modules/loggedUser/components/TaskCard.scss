@@ -1,0 +1,55 @@
+@import "../../../variabales.scss";
+
+.TaskCard-Container {
+  width: 140px;
+  height: 140px;
+  background-color: grey;
+  position: relative;
+  border-radius: 20px;
+  // overflow: hidden;
+
+  &-Img {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &_Icon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      height: 20px;
+      width: 20px;
+    }
+    &.Status {
+      background-color: $red;
+      border-radius: 50%;
+      top: 7px;
+      left: 7px;
+      svg {
+        fill: #fff;
+      }
+    }
+
+    &.Action {
+      background-color: $blue;
+      &.checked {
+        background-color: $green;
+      }
+      border-radius: 50%;
+      bottom: -13px;
+      right: 15px;
+      svg {
+        fill: #fff;
+      }
+    }
+  }
+}

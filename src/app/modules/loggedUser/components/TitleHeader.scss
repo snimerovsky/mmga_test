@@ -1,0 +1,21 @@
+@import '../../../variabales.scss';
+
+.TitleHeader-Container {
+  width: 100%;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $blue;
+  color: #ffffff;
+  svg {
+    height: 40px;
+    width: 40px;
+    margin-right: 15px;
+    fill: #fff;
+  }
+  span {
+    text-align: center;
+    max-width: 500px;
+  }
+}

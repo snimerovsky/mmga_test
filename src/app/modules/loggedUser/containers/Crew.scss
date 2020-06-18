@@ -1,0 +1,115 @@
+@import '../../../variabales.scss';
+
+.Crew-Container {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+
+  &__RightGap {
+    padding-right: 100px;
+  }
+  &_Header {
+    margin: 60px 0 30px;
+    display: flex;
+    justify-content: space-between;
+    &_Item {
+      &-Container {
+        display: flex;
+        flex-direction: column;
+      }
+      &_Textarea {
+        display: inline-block;
+        width: 170px;
+        border: none;
+        color: $blue;
+
+        padding-top: 8px;
+        &_Button {
+          margin-top: 22px;
+          background-color: $green;
+          color: #fff;
+          &:hover,
+          &:active,
+          &:focus {
+            background-color: $green;
+            color: #fff;
+          }
+        }
+      }
+      &_Header {
+        font-size: 18px;
+        color: #565656;
+        display: block;
+        padding-bottom: 10px;
+      }
+    }
+  }
+
+  &_Invited-Container {
+    @include shadowBox;
+    border-radius: 20px;
+    margin-bottom: 100px;
+    overflow: hidden;
+    .ant-collapse-content > .ant-collapse-content-box {
+      padding: 0;
+    }
+
+    .ant-collapse,
+    .ant-collapse-content {
+      border: none;
+      & > .ant-collapse-item {
+        border: none;
+      }
+    }
+  }
+  &_Stat-Section {
+    display: flex;
+    padding-left: 70px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+
+    & > &_Item:not(:last-child) {
+      position: relative;
+      margin-right: 50px;
+      &::after {
+        position: absolute;
+        top: 45px;
+        right: -25px;
+        content: '';
+        width: 2px;
+        height: 40px;
+        background-color: #cccccc;
+      }
+    }
+    &_Item {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+
+      &_Number {
+        font-size: 24px;
+        margin-top: 4px;
+        &.__all {
+          color: $blue;
+        }
+
+        &.__invited {
+          color: $orange;
+        }
+
+        &.__invitedActive {
+          color: $green;
+        }
+      }
+      &_Description {
+        margin-top: 4px;
+        font-size: 16px;
+      }
+      svg {
+        width: 40px;
+        height: 40px;
+        fill: #cccccc;
+      }
+    }
+  }
+}

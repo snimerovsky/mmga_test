@@ -1,0 +1,28 @@
+@import "../../variabales.scss";
+
+.Dashboard-Container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0 100px;
+
+  &_wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    &_Logo {
+      svg {
+        width: 170px;
+        cursor: pointer;
+      }
+    }
+  }
+  &_Content {
+    & > div {
+      border-radius: 0 40px 0 0;
+      overflow: hidden;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import '../../../variabales.scss';
+
+.Avatar-Container {
+  display: flex;
+
+  &_Img {
+    background-color: #e2e0db;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 72px;
+    width: 72px;
+    // @include shadowBox;
+    img {
+      width: 100%;
+    }
+  }
+
+  svg {
+    height: 72px;
+    width: 72px;
+  }
+
+  .Avatar-Container_Info {
+    margin-left: 15px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    & > div:last-child {
+      margin-top: 10px;
+    }
+  }
+}

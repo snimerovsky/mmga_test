@@ -1,0 +1,83 @@
+@import '../../../variabales.scss';
+
+.Collapse-Container {
+  position: relative;
+  &_Pannel {
+    position: relative;
+    // border-bottom: 1px solid $lightgrey;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: $lightgrey;
+      bottom: 0;
+    }
+
+    &_Content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 10px 0;
+    }
+
+    &_Icon-Container {
+      display: flex;
+      width: 360px;
+      flex-wrap: wrap;
+      & > div:not(:last-child) {
+        margin-right: 20px;
+      }
+      & > div:nth-child(n + 6) {
+        margin-top: 20px;
+      }
+    }
+
+    &_Button-Container {
+      width: 180px;
+      & button {
+        width: 100px;
+      }
+    }
+    &_Header {
+      //   background-color: red;
+      //   border-bottom: none;
+      height: 85px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &_Title {
+        display: flex;
+        justify-content: center;
+        width: 155px;
+        position: relative;
+        &::after {
+          position: absolute;
+          content: '';
+          top: 50%;
+          transform: translateY(-50%);
+          height: 37px;
+          width: 1px;
+          right: 0;
+          background-color: $lightgrey;
+        }
+      }
+      &_Icon {
+        height: 50px;
+        width: 50px;
+      }
+    }
+  }
+
+  .expandButton {
+    &__inactive {
+      background-color: $inactive;
+      color: #fff;
+    }
+  }
+  .ant-collapse-item > .ant-collapse-header {
+    padding: 0;
+    background-color: #fff;
+  }
+}

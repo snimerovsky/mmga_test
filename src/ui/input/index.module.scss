@@ -1,0 +1,35 @@
+@import "../constants";
+
+.Input {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.field {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: $inputHeight;
+  padding: 0 $inputLeftAndRightPadding;
+  border-radius: $inputHeight / 2;
+  border: 0.0625rem solid #cccccc;
+  background-color: #ffffff;
+
+  &::placeholder {
+    font-size: 1.125rem;
+    color: #cccccc;
+  }
+}
+
+.fieldError {
+  border: 0.0625rem solid #ee2e24;
+}
+
+.errorText {
+  position: absolute;
+  font-size: 1.125rem;
+  color: #ee2e24;
+  top: $inputHeight + 0.5rem;
+  left: $inputHeight / 2;
+}

@@ -1,0 +1,56 @@
+@import '../../../variabales.scss';
+
+.ProgresBar-Container {
+  font-size: 18px;
+  width: 100%;
+  display: flex;
+  &_LeftLabel {
+    display: flex;
+    align-items: flex-end;
+    padding-right: 10px;
+    padding-bottom: 3px;
+  }
+  &_Bar {
+    flex-grow: 1;
+    border-radius: 20px;
+    height: 20px;
+    margin-top: 30px;
+    background-color: #cccccc;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    // width: 100%;
+    &-Item {
+      border-radius: 20px;
+      height: 15px;
+      &.active {
+      }
+      &.empty {
+        background-color: #a6a6a6;
+      }
+    }
+    &_Label {
+      &-Right {
+        position: absolute;
+        top: -100%;
+        right: 0;
+      }
+      &-Left {
+        position: absolute;
+        top: -100%;
+        left: 0;
+        display: flex;
+        svg {
+          margin-left: 6px;
+          position: relative;
+          top: -3px;
+          fill: #3a98d1;
+          align-self: center;
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}

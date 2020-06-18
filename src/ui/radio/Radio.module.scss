@@ -1,0 +1,40 @@
+.Radio {
+  $padding: 0.875rem;
+  display: flex;
+  cursor: pointer;
+
+  .control {
+    position: relative;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 0.875rem;
+    border: 0.0625rem solid #cccccc;
+    background-color: #ffffff;
+    &.checked {
+      &:after {
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        content: "";
+        width: 0.9rem;
+        height: 1.2rem;
+        background-image: url("../../styles/sources/images/checkbox-value.svg");
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  .textBlock {
+    padding-left: $padding;
+  }
+
+  .textBlockReverse {
+    padding-right: $padding;
+  }
+
+  .text {
+    font-size: 1.125rem;
+    color: #222222;
+    line-height: 1.75rem;
+  }
+}

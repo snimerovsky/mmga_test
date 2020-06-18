@@ -1,0 +1,14 @@
+.AuthForm {
+  display: flex;
+  flex-direction: column;
+  width: 41.375rem;
+
+  & > :not(:first-child) {
+    margin-top: 2.25rem;
+  }
+}
+
+.button {
+  width: 15rem;
+  align-self: flex-end;
+}

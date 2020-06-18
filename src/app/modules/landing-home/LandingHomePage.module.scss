@@ -1,0 +1,280 @@
+.LandingHomePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 9.375rem;
+}
+
+.pageWrapper {
+  width: 72rem;
+}
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.875rem;
+}
+
+.accountButtonWrapper {
+}
+
+.accountButton {
+  width: 12.5rem;
+}
+
+.wrapperInfo {
+  margin-top: 12.5rem;
+}
+
+.title {
+  font-family: 'ProximaNova-Bold';
+  font-size: 3.75rem;
+}
+
+.additionalText {
+  color: #565656;
+  font-size: 1.5rem;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+
+  .leftSide {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      margin-bottom: 1.7875rem;
+    }
+
+    .mainText {
+      color: #222222;
+      font-family: 'ProximaNova-Bold';
+      font-size: 3.75rem;
+    }
+
+    .additionalText {
+      color: #565656;
+      font-size: 1.5rem;
+    }
+
+    .buttonWrapper {
+      width: 27.625rem;
+    }
+
+    .buttonWrapper2 {
+      width: 15.563rem;
+    }
+  }
+
+  .rightSide {
+    .phone {
+      height: 45.125rem;
+      padding-right: 7.6875rem;
+    }
+
+    .faces {
+      width: 35.625rem;
+      height: 35.625rem;
+    }
+  }
+}
+
+.targetAudience {
+  text-align: center;
+
+  & > *:not(:first-child) {
+    margin-top: 40px;
+  }
+
+  .title {
+    font-family: 'ProximaNova-Bold';
+    font-size: 3.75rem;
+  }
+
+  .description {
+    font-size: 1.125rem;
+  }
+
+  .audienceFaces {
+    display: flex;
+    justify-content: space-between;
+
+    .content {
+      height: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  .face {
+    display: flex;
+    width: 16.25rem;
+    height: 16.25rem;
+    border-radius: 1.25rem;
+    font-family: 'ProximaNova-Bold';
+    font-size: 1.875rem;
+    color: #fefefe;
+    padding-top: 1.8125rem;
+
+    .img {
+      width: 6.938rem;
+      height: 6.875rem;
+      margin-bottom: 1.0625rem;
+    }
+
+    &.darkBlue {
+      background-color: #2b64b0;
+    }
+
+    &.blue {
+      background-color: #3b9cd6;
+    }
+
+    &.red {
+      background-color: #eb6159;
+    }
+
+    &.orange {
+      background-color: #fbae44;
+    }
+  }
+}
+
+.partners {
+  display: flex;
+  justify-content: center;
+  margin-top: 3.875rem;
+  height: 16.25rem;
+  background-color: #f2f2f2;
+  width: 100%;
+
+  .partnersInner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .title {
+    font-family: 'ProximaNova-Bold';
+    font-size: 3.75rem;
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    & > *:not(:first-child) {
+      margin-left: 50px;
+    }
+  }
+}
+
+.ProfileRegistrationForm {
+  display: flex;
+  flex-direction: column;
+  padding: 10.625rem 0 3.75rem 0;
+  align-items: center;
+
+  .phoneImg {
+    margin-top: 3.75rem;
+    margin-bottom: 2.6875rem;
+    width: 53.125rem;
+  }
+
+  .additionalTextMargin {
+    margin-top: 1.625rem;
+  }
+
+  .form {
+    box-shadow: 0 0.688rem 2.688rem #e2e2e2;
+    border-radius: 1.8rem;
+    width: 35.625rem;
+
+    .section {
+      padding: 3.75rem 3.125rem 4.6875rem 3.125rem;
+
+      &:nth-child(odd) {
+        background-color: #f7f7f7;
+      }
+
+      &:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    }
+
+    .row {
+      margin-bottom: 2.5rem;
+    }
+
+    .textBold {
+      display: block;
+      font-family: 'ProximaNova-Bold';
+      font-size: 1.125rem;
+      color: #565656;
+      text-align: start;
+      margin-bottom: 1.25rem;
+    }
+
+    .textRegular {
+      $fontSize: 1.125rem;
+      display: block;
+      font-size: $fontSize;
+      line-height: $fontSize;
+      color: #333333;
+      margin-right: 1.25rem;
+    }
+
+    .connectAccButtonBlock {
+      display: flex;
+      align-items: center;
+    }
+
+    .connectButtonWrapper {
+      width: 10.875rem;
+    }
+
+    .sexRadioChoices {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .selectWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+
+    .selectBox {
+      width: 100%;
+    }
+
+    .selectText {
+      width: 9rem;
+    }
+  }
+
+  .nextButton {
+    width: 16.875rem;
+    margin: 0 auto;
+  }
+}
+
+.addSubjectButtonWrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.875rem;
+}
+
+.addSubjectButton {
+  width: 12.75rem;
+}
+
+.subjectErrorText {
+  font-size: 1.125rem;
+  color: #ee2e24;
+}

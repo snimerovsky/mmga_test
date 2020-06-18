@@ -1,0 +1,34 @@
+.ProgressBar {
+  $height: 1.25rem;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: $height;
+  border-radius: $height / 2;
+  background-color: #cccccc;
+}
+
+.progressDivision {
+  $height: 0.875rem;
+  height: $height;
+  border-radius: $height / 2;
+  background-color: #a6a6a6;
+
+  &.div12 {
+    width: 2.5rem;
+  }
+
+  &.div5 {
+    width: 6.25rem;
+  }
+
+  &.green {
+    background-color: #abd029;
+  }
+
+  &.red {
+    background-color: #ee2e24;
+  }
+}

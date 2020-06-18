@@ -1,0 +1,71 @@
+.Button {
+  $redColor: #ee2e24;
+  $blueColor: #2b64b0;
+  $defaultColor: $blueColor;
+  $buttonHeight: 3.125rem;
+  width: 100%;
+  height: $buttonHeight;
+  background-color: $defaultColor;
+  box-shadow: 0 0.6875rem 2.6875rem rgba(98, 143, 144, 0.15);
+  border-radius: 1.5rem;
+  border: none;
+
+  &.withIcon {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    background-color: #cccccc !important;
+  }
+
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+
+  &.colorRed {
+    background-color: $redColor;
+  }
+
+  &.colorBlue {
+    background-color: $blueColor;
+  }
+
+  .textBlock {
+    color: #ffffff;
+    font-size: 1.125rem;
+    line-height: $buttonHeight;
+    font-family: "ProbaPro-ExtraLight";
+
+    &.disableSolidFill {
+      &.colorRed {
+        color: $redColor;
+      }
+
+      &.colorBlue {
+        color: $blueColor;
+      }
+    }
+  }
+
+  &.disableSolidFill {
+    border: 0.125rem solid $defaultColor;
+    background-color: transparent;
+
+    &.colorRed {
+      border: 0.125rem solid $redColor;
+    }
+
+    &.colorBlue {
+      border: 0.125rem solid $blueColor;
+    }
+  }
+
+  .icon {
+    width: 1.188rem;
+    height: 1.188rem;
+    display: inline;
+    line-height: $buttonHeight;
+  }
+}
