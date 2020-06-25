@@ -1,8 +1,9 @@
-@import '../../../variabales.scss';
+@import "../../../variabales.scss";
 .Sidebar-Container {
   border-top-left-radius: 20px;
-  overflow: hidden;
   width: 100%;
+  position: relative;
+  z-index: 1;
   height: 100%;
   min-height: 800px;
   padding-top: 18px;
@@ -28,8 +29,10 @@
     font-size: 18px;
     padding: 0 40px;
     letter-spacing: 0px;
+    padding-right: 25px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     a {
       display: flex;
@@ -65,4 +68,8 @@
     color: #fff !important;
     background-color: $blue;
   }
+}
+
+.ant-scroll-number-only-unit {
+  padding-top: 1px !important;
 }

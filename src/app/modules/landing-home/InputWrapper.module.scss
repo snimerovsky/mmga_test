@@ -1,11 +1,11 @@
 .Input {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .label {
   width: 11rem;
-  line-height: 3.125rem;
   color: #333333;
   font-size: 1.125rem;
 }

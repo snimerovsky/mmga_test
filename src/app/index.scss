@@ -1,4 +1,4 @@
-@import './variabales.scss';
+@import "./variabales.scss";
 
 .wrapper {
   width: $wrapper;
@@ -46,13 +46,13 @@
 }
 
 @font-face {
-  font-family: 'Proxima-Nova';
-  src: url('../fonts/11096.otf');
+  font-family: "Proxima-Nova";
+  src: url("../fonts/11096.otf");
 }
 
 @font-face {
-  font-family: 'ProbaPro-ExtraLight';
-  src: url('../fonts/ProbaPro-ExtraLight.ttf');
+  font-family: "ProbaPro-ExtraLight";
+  src: url("../fonts/ProbaPro-ExtraLight.ttf");
 }
 
 html {

@@ -1,9 +1,9 @@
-import React from 'react';
-import './Finance.scss';
-import classnames from 'classnames';
-import TitleHeader from '../components/TitleHeader';
-import { Button, Modal, Row, Col } from 'antd';
-import { Input } from '../../../../ui/input';
+import React from "react";
+import "./Finance.scss";
+import classnames from "classnames";
+import TitleHeader from "../components/TitleHeader";
+import { Button, Modal, Row, Col } from "antd";
+import { Input } from "../../../../ui/input";
 
 import {
   Wallet,
@@ -13,15 +13,15 @@ import {
   Webmoney,
   Yandexmoney,
   Close,
-} from '../../../../assets/icons';
+} from "../../../../assets/icons";
 
-import { getIndicatorStatus } from '../../../../ui/Indicator/utils';
-import { FinanceStore } from '../../authorization/stores/AuthStore';
-import { withRoute } from 'react-router5';
-import { withApi } from '../../../../api/withApi';
-import { inject, observer } from 'mobx-react';
-import { IStore } from '../../../store';
-import { IPlan } from '../../../../api/interfaces';
+import { getIndicatorStatus } from "../../../../ui/Indicator/utils";
+import { FinanceStore } from "../../authorization/stores/AuthStore";
+import { withRoute } from "react-router5";
+import { withApi } from "../../../../api/withApi";
+import { inject, observer } from "mobx-react";
+import { IStore } from "../../../store";
+import { IPlan } from "../../../../api/interfaces";
 
 interface IProps {
   financeStore: FinanceStore;
@@ -46,14 +46,14 @@ const modalContainer = (
         <Wallet />
       </div>
       <div className="Finance-Container_ModalContainer_Input-Wrapper">
-        <span>Количество монет</span>
+        <span className="text">Количество монет</span>
         <Input
-          type={'text'}
-          name={'money'}
-          value={plan.tokens.amount === 0 ? '' : plan.tokens.amount.toString()}
+          type={"text"}
+          name={"money"}
+          value={plan.tokens.amount === 0 ? "" : plan.tokens.amount.toString()}
           readOnly={plan.id !== 0}
           onChange={(val) => {
-            setTokens(parseInt((val || '0') as string));
+            setTokens(parseInt((val || "0") as string));
           }}
           indicator={{
             status: getIndicatorStatus(true, undefined),
@@ -61,8 +61,8 @@ const modalContainer = (
           error={false && false}
         />
         <div className="Finance-Container_ModalContainer_Input-Wrapper_Sum">
-          <span>Сумма для пополнения: </span>
-          <span className="__BolderBoldFont">{plan.tokens.price}</span>
+          <span className="text">Сумма для пополнения: </span>
+          <span className="__BolderBoldFont">{plan.tokens.price} руб</span>
         </div>
       </div>
 
@@ -79,7 +79,7 @@ const modalContainer = (
           pay(plan);
         }}
       >
-        Опплатить
+        Оплатить
       </Button>
     </div>
   );
@@ -94,11 +94,11 @@ const Plan = (
     <div
       className={classnames({
         __BoldFont: true,
-        'Finance-Container_Plans_Item_Header': true,
-        base: plan.type === 'Базовый',
-        opt: plan.type === 'Оптимальный',
-        pro: plan.type === 'Продвинутый',
-        prof: plan.type === 'Профессиональный',
+        "Finance-Container_Plans_Item_Header": true,
+        base: plan.type === "Базовый",
+        opt: plan.type === "Оптимальный",
+        pro: plan.type === "Продвинутый",
+        prof: plan.type === "Профессиональный",
       })}
     >
       {plan.type}
@@ -106,12 +106,12 @@ const Plan = (
     <div className="Finance-Container_Plans_Item_Container">
       <div className="Finance-Container_Plans_Item_Container_Monthes">
         <h3 className="__BolderBoldFont">
-          {plan.months}{' '}
+          {plan.months}{" "}
           {plan.months > 1
             ? plan.months <= 4
-              ? 'Месяца'
-              : 'Месяцев'
-            : 'Месяц'}
+              ? "Месяца"
+              : "Месяцев"
+            : "Месяц"}
         </h3>
         <span>работы в сервисе</span>
       </div>
@@ -159,10 +159,10 @@ export const Finance = (props: IProps) => {
       <div className="user-wrapper">
         <div className="Finance-Container_Header">
           <div>
-            Внутренняя валюта:{' '}
+            Внутренняя валюта:{" "}
             <span className="Finance-Container_Header__active __BolderBoldFont">
               Токены
-            </span>{' '}
+            </span>{" "}
             <span className="Finance-Container_Header_Curse __BolderBoldFont">
               1 токен = 5 руб
             </span>
@@ -183,13 +183,11 @@ export const Finance = (props: IProps) => {
           </Button> */}
         </div>
 
-        <Row className="Finance-Container_Plans">
-          {props.financeStore.plans.map((plan: any, index: number) => (
-            <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={6}>
-              {Plan(plan, props.financeStore.setCurrentPlan, index)}
-            </Col>
-          ))}
-        </Row>
+        <div className="Finance-Container_Plans">
+          {props.financeStore.plans.map((plan: any, index: number) =>
+            Plan(plan, props.financeStore.setCurrentPlan, index)
+          )}
+        </div>
       </div>
       <Modal
         visible={props.financeStore.currentPlan !== null}

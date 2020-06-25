@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import './Collapse.scss';
-import { Collapse, Button } from 'antd';
-import { Man } from '../../../../assets/icons';
+import React, { useState } from "react";
+import "./Collapse.scss";
+import { Collapse, Button } from "antd";
+import { Man } from "../../../../assets/icons";
 
 const { Panel } = Collapse;
 
 const CollapseComp = (props: any) => {
   const { invited } = props;
-  const [active, setActive] = useState(['999']);
+  const [active, setActive] = useState(["999"]);
 
   const expandButton = (active: boolean) => (
     <div className="expandButton">
@@ -39,9 +39,28 @@ const CollapseComp = (props: any) => {
                 </div>
                 <div className="Collapse-Container_Pannel_Icon-Container">
                   {inv.invited.slice(0, rowLength).map((user: any) => (
-                    <div className="Collapse-Container_Pannel_Header_Icon">
-                      {user.profile_picture ? <img src={user.profile_picture} style={{maxWidth: '50px', borderRadius: '50%'}}/> : <Man />}
-                    </div>
+                    <a
+                      href={`https://instagram.com/${user.username}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="Collapse-Container_Pannel_Header_Icon avatar"
+                    >
+                      {user.profile_picture ? (
+                        <>
+                          <img
+                            src={user.profile_picture}
+                            style={{
+                              maxWidth: "50px",
+                              borderRadius: "50%",
+                              border: "1px solid #7d9dff",
+                            }}
+                            className="avatar"
+                          />
+                        </>
+                      ) : (
+                        <Man />
+                      )}
+                    </a>
                   ))}
                 </div>
                 <div className="Collapse-Container_Pannel_Button-Container">
@@ -52,7 +71,7 @@ const CollapseComp = (props: any) => {
             key={index}
           >
             <div className="Collapse-Container_Pannel_Content">
-              <div style={{ width: '155px' }}></div>
+              <div style={{ width: "155px" }}></div>
               <div className="Collapse-Container_Pannel_Icon-Container">
                 {inv.invited
                   .slice(rowLength, inv.invited.length)

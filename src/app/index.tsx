@@ -1,31 +1,33 @@
-import { inject, IReactComponent, observer } from 'mobx-react';
-import React from 'react';
-import { withRoute } from 'react-router5';
-import { RouteContext } from 'react-router5/types/types';
-import styles from './index.module.scss';
-import { AuthorizationPage } from './modules/authorization/AuthorizationPage';
-import { AuthStore } from './modules/authorization/stores/AuthStore';
-import { LandingHomePage } from './modules/landing-home/LandingHomePage';
-import Rules from './modules/landing-home/Rules';
-import UserDashboard from './modules/loggedUser/Dashboard';
-import Tasks from './modules/loggedUser/containers/Tasks';
-import Analytics from './modules/loggedUser/containers/Analytics';
-import Modering from './modules/landing-home/Modering';
-import Conditions from './modules/landing-home/Conditions';
-import { RouteNameChoices, RouteNames } from './modules/router';
-import { IStore } from './store';
-import './index.scss';
-import 'antd/dist/antd.css';
-import Tutorial from './modules/loggedUser/containers/Tutorial';
-import Assignment from './modules/loggedUser/containers/Assignment';
-import { withApi } from '../api/withApi';
+import { inject, IReactComponent, observer } from "mobx-react";
+import React from "react";
+import { withRoute } from "react-router5";
+import { RouteContext } from "react-router5/types/types";
+import styles from "./index.module.scss";
+import { AuthorizationPage } from "./modules/authorization/AuthorizationPage";
+import { AuthStore } from "./modules/authorization/stores/AuthStore";
+import { LandingHomePage } from "./modules/landing-home/LandingHomePage";
+import Rules from "./modules/landing-home/Rules";
+import UserDashboard from "./modules/loggedUser/Dashboard";
+import Tasks from "./modules/loggedUser/containers/Tasks";
+import Analytics from "./modules/loggedUser/containers/Analytics";
+import Modering from "./modules/landing-home/Modering";
+import Conditions from "./modules/landing-home/Conditions";
+import { RouteNameChoices, RouteNames } from "./modules/router";
+import { IStore } from "./store";
+import "./index.scss";
+import "antd/dist/antd.css";
+import Tutorial from "./modules/loggedUser/containers/Tutorial";
+import Assignment from "./modules/loggedUser/containers/Assignment";
+import { withApi } from "../api/withApi";
 
-import Crew from './modules/loggedUser/containers/Crew';
-import Statuses from './modules/loggedUser/containers/Statuses';
-import Finance from './modules/loggedUser/containers/Finance';
-import News from './modules/loggedUser/containers/News';
-import Chatting from './modules/loggedUser/containers/Chatting';
-import PrivateSettings from './modules/loggedUser/containers/PrivateSettings';
+import Crew from "./modules/loggedUser/containers/Crew";
+import Statuses from "./modules/loggedUser/containers/Statuses";
+import Finance from "./modules/loggedUser/containers/Finance";
+import News from "./modules/loggedUser/containers/News";
+import Chatting from "./modules/loggedUser/containers/Chatting";
+import PrivateSettings from "./modules/loggedUser/containers/PrivateSettings";
+import Restoring from "./modules/authorization/Restoring";
+import { RestoringForm } from "./modules/authorization/RestoringForm";
 
 @observer
 class AppComponent extends React.Component<any> {
@@ -127,7 +129,7 @@ class AppComponent extends React.Component<any> {
         </UserDashboard>
       );
     } else if (isTaskComplete && routeName === RouteNames.finance) {
-      console.log('Finance: ', financeStore);
+      console.log("Finance: ", financeStore);
       renderComponent = (
         <UserDashboard user={user}>
           {/*<Finance financeStore={financeStore}/>*/}
@@ -178,6 +180,10 @@ class AppComponent extends React.Component<any> {
       router.navigate(RouteNames[RouteNameChoices.tasks]);
     } else if (routeName === RouteNames.modering) {
       renderComponent = <Modering />;
+    } else if (routeName === RouteNames.restore) {
+      renderComponent = <RestoringForm />;
+    } else if (routeName === RouteNames.restoring) {
+      renderComponent = <Restoring />;
     }
 
     return <div className={styles.App}>{renderComponent}</div>;

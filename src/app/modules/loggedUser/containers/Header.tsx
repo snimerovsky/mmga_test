@@ -4,8 +4,9 @@ import Avatar from "../components/Avatar";
 import { withRoute } from "react-router5";
 import { RouteNameChoices, RouteNames } from "../../router";
 import classnames from "classnames";
+import Help from "../../../../assets/icons/Help.png";
 
-import { Gear, Email, Help, Logout } from "../../../../assets/icons";
+import { Gear, Email, Logout } from "../../../../assets/icons";
 import { inject, observer } from "mobx-react";
 
 export const Header = (props: any) => {
@@ -38,7 +39,7 @@ export const Header = (props: any) => {
               style={{ marginTop: "2px" }}
               className="Header_Avatar-Container_SimpleText"
             >
-              Баланс:{" "}
+              Баланс:&nbsp;
               <span
                 className={classnames({
                   __RedText: user?.balance === 0,
@@ -46,15 +47,15 @@ export const Header = (props: any) => {
                   __BoldFont: true,
                 })}
               >
-                {user?.balance} Токенов
+                {user?.balance} токенов
               </span>
             </span>
             <span className="Header_Avatar-Container_SimpleText">
-              Срок действия:{" "}
+              Срок действия:&nbsp;
               <span
                 className={classnames({
-                  __RedText: user?.days === 0,
-                  __GreenText: user?.days > 0,
+                  __RedText: user?.paid_days === 0,
+                  __GreenText: user?.paid_days > 0,
                   __BoldFont: true,
                 })}
               >
@@ -75,13 +76,19 @@ export const Header = (props: any) => {
             props.router.navigate(RouteNames[RouteNameChoices.privateSettings]);
           }}
         />{" "}
-        <a href="https://about.mmga.ru/obuchenie/" target="_blank">
-          <Help
+        <a
+          href="https://about.mmga.ru/obuchenie/"
+          className={"icon"}
+          target="_blank"
+        >
+          <img
+            src={Help}
             onClick={() => {
               if (user && user?.first_task_completed) {
                 props.router.navigate(RouteNames[RouteNameChoices.tutorial]);
               }
             }}
+            className={"iconSize"}
           />
         </a>
         <div

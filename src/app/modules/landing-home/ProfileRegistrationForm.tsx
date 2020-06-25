@@ -1,29 +1,29 @@
-import classNames from 'classnames';
-import { Field, FieldArray, FieldProps, Form, Formik } from 'formik';
-import { observable, runInAction } from 'mobx';
-import { inject, Observer } from 'mobx-react';
-import React, { Fragment } from 'react';
-import { withRoute } from 'react-router5';
-import { Router } from 'router5';
-import * as Yup from 'yup';
-import { Api } from '../../../api';
-import { Subject } from '../../../api/interfaces';
-import { withApi } from '../../../api/withApi';
-import phoneImg from '../../../styles/sources/images/phone-2.png';
-import { Button } from '../../../ui/button';
-import { getIndicatorStatus } from '../../../ui/Indicator/utils';
-import Radio from '../../../ui/radio';
-import { Select } from '../../../ui/select';
-import { range } from '../../../utils/range';
-import { IStore } from '../../store';
-import { AuthStore } from '../authorization/stores/AuthStore';
-import { RouteNameChoices, RouteNames } from '../router';
-import { InstagramAuthButton } from './InstagramAuthButton';
-import styles from './LandingHomePage.module.scss';
-import { SelectError } from './SelectError';
+import classNames from "classnames";
+import { Field, FieldArray, FieldProps, Form, Formik } from "formik";
+import { observable, runInAction } from "mobx";
+import { inject, Observer } from "mobx-react";
+import React, { Fragment } from "react";
+import { withRoute } from "react-router5";
+import { Router } from "router5";
+import * as Yup from "yup";
+import { Api } from "../../../api";
+import { Subject } from "../../../api/interfaces";
+import { withApi } from "../../../api/withApi";
+import phoneImg from "../../../styles/sources/images/phone-2.png";
+import { Button } from "../../../ui/button";
+import { getIndicatorStatus } from "../../../ui/Indicator/utils";
+import Radio from "../../../ui/radio";
+import { Select } from "../../../ui/select";
+import { range } from "../../../utils/range";
+import { IStore } from "../../store";
+import { AuthStore } from "../authorization/stores/AuthStore";
+import { RouteNameChoices, RouteNames } from "../router";
+import { InstagramAuthButton } from "./InstagramAuthButton";
+import styles from "./LandingHomePage.module.scss";
+import { SelectError } from "./SelectError";
 
-import { Input } from '../../../ui/input';
-import { InputWrapper } from './InputWrapper';
+import { Input } from "../../../ui/input";
+import { InputWrapper } from "./InputWrapper";
 
 export enum Sex {
   UNKNOWN,
@@ -47,45 +47,45 @@ interface IFormValues {
 }
 
 const initialValues: IFormValues = {
-  profileUrl: '',
+  profileUrl: "",
   sex: null,
   interestedInSex: Sex.UNKNOWN,
   accountType: AccountType.personal,
-  city: '',
+  city: "",
   myAccountSubjects: [],
   interestedInSubjects: [],
 };
 
 const validationSchema = Yup.object().shape({
   profileUrl: Yup.string()
-    .test('phoneNumberLengthIs10Digits', 'Введите ссылку', (value) => {
+    .test("phoneNumberLengthIs10Digits", "Введите ссылку", (value) => {
       return value !== undefined;
     })
     .trim()
-    .url('Введите ссылку'),
+    .url("Введите ссылку"),
   sex: Yup.number()
-    .oneOf(Object.values<number>(Sex as any), 'Укажите ваш пол')
+    .oneOf(Object.values<number>(Sex as any), "Укажите ваш пол")
     .nullable(true)
-    .required('Required'),
+    .required("Required"),
   interestedInSex: Yup.number()
     .oneOf(Object.values<number>(Sex as any))
     .nullable(true)
-    .required('Укажите пол'),
+    .required("Укажите пол"),
   accountType: Yup.number()
     .oneOf(Object.values<number>(AccountType as any))
     .nullable(true)
-    .required('Required'),
+    .required("Required"),
   city: Yup.string()
     .nullable(true)
-    .required('Введите ваш город'),
+    .required("Введите ваш город"),
   myAccountSubjects: Yup.array()
     .of(Yup.number())
-    .min(3, 'Укажите тематики')
-    .required('Укажите тематики'),
+    .min(3, "Укажите тематики")
+    .required("Укажите тематики"),
   interestedInSubjects: Yup.array()
     .of(Yup.number())
-    .min(3, 'Укажите тематики')
-    .required('Укажите тематики'),
+    .min(3, "Укажите тематики")
+    .required("Укажите тематики"),
 });
 
 interface IProps {
@@ -149,6 +149,7 @@ class ProfileRegistrationFormComponent extends React.Component<IProps> {
                 interestedInSex,
                 sex,
               } = values;
+              console.log(profileUrl);
               try {
                 await this.props.api!.profileForm({
                   profile_url: profileUrl,
@@ -191,14 +192,14 @@ class ProfileRegistrationFormComponent extends React.Component<IProps> {
             {(props) => {
               const { isSubmitting, setFieldValue } = props;
               return (
-                <Form translate={''}>
+                <Form translate={""}>
                   <div className={styles.form}>
                     <div className={styles.section}>
                       <div className={styles.row}>
                         <span className={styles.textBold}>
                           Введите ссылку на соц сеть для подключения:
                         </span>
-                        <Field name={'profileUrl'}>
+                        <Field name={"profileUrl"}>
                           {(props: FieldProps<string, IFormValues>) => {
                             const {
                               field,
@@ -209,9 +210,9 @@ class ProfileRegistrationFormComponent extends React.Component<IProps> {
                             const { setValue } = getFieldHelpers(field.name);
                             return (
                               <Input
-                                type={'text'}
+                                type={"text"}
                                 placeholder={
-                                  'https://www.instagram.com/leonardodicaprio'
+                                  "https://www.instagram.com/leonardodicaprio"
                                 }
                                 indicator={{
                                   status: getIndicatorStatus(
@@ -234,7 +235,7 @@ class ProfileRegistrationFormComponent extends React.Component<IProps> {
                         <span className={styles.textBold}>
                           Укажите ваш пол:
                         </span>
-                        <Field name={'sex'}>
+                        <Field name={"sex"}>
                           {(props: FieldProps<string, IFormValues>) => {
                             const { field, form, meta } = props;
                             const { setValue } = form.getFieldHelpers(
@@ -247,15 +248,15 @@ class ProfileRegistrationFormComponent extends React.Component<IProps> {
                                   options={[
                                     {
                                       id: Sex.MALE,
-                                      text: 'Мужской',
+                                      text: "Мужской",
                                     },
                                     {
                                       id: Sex.FEMALE,
-                                      text: 'Женский',
+                                      text: "Женский",
                                     },
                                     {
                                       id: Sex.UNKNOWN,
-                                      text: 'Не важно',
+                                      text: "Не важно",
                                     },
                                   ]}
                                   value={meta.value}
@@ -276,7 +277,7 @@ class ProfileRegistrationFormComponent extends React.Component<IProps> {
                         <span className={styles.textBold}>
                           Тип вашего аккаунта:
                         </span>
-                        <Field name={'accountType'}>
+                        <Field name={"accountType"}>
                           {(props: FieldProps<number, IFormValues>) => {
                             const { field, form, meta } = props;
                             const { setValue } = form.getFieldHelpers(
@@ -285,15 +286,15 @@ class ProfileRegistrationFormComponent extends React.Component<IProps> {
 
                             return (
                               <Select.Container
-                                defaultText={'Выберите тип аккаунта'}
+                                defaultText={"Выберите тип аккаунта"}
                                 options={[
                                   {
                                     id: AccountType.personal,
-                                    text: 'Личный',
+                                    text: "Личный",
                                   },
                                   {
                                     id: AccountType.business,
-                                    text: 'Бизнес',
+                                    text: "Бизнес",
                                   },
                                 ]}
                                 indicator={{
@@ -313,7 +314,7 @@ class ProfileRegistrationFormComponent extends React.Component<IProps> {
 
                       <div className={styles.row}>
                         <span className={styles.textBold}>Ваш город:</span>
-                        <Field name={'city'}>
+                        <Field name={"city"}>
                           {(props: FieldProps<string, IFormValues>) => {
                             const {
                               field,
@@ -325,11 +326,11 @@ class ProfileRegistrationFormComponent extends React.Component<IProps> {
                             return (
                               <InputWrapper
                                 name={field.name}
-                                labelText={'Город'}
+                                labelText={"Город"}
                               >
                                 <Input
-                                  type={'text'}
-                                  placeholder={'Введите город'}
+                                  type={"text"}
+                                  placeholder={"Введите город"}
                                   indicator={{
                                     status: getIndicatorStatus(
                                       meta.touched,
@@ -353,7 +354,7 @@ class ProfileRegistrationFormComponent extends React.Component<IProps> {
                           Укажите минимум 3 тематики, к которым подходит ваш
                           аккаунт:
                         </span>
-                        <FieldArray name={'myAccountSubjects'}>
+                        <FieldArray name={"myAccountSubjects"}>
                           {(arrayHelpers) => {
                             return (
                               <Fragment>
@@ -387,7 +388,7 @@ class ProfileRegistrationFormComponent extends React.Component<IProps> {
                                                   return (
                                                     <Select.Container
                                                       defaultText={
-                                                        'Выберите тематику'
+                                                        "Выберите тематику"
                                                       }
                                                       options={subjects.map(
                                                         (subject) => ({
@@ -409,25 +410,25 @@ class ProfileRegistrationFormComponent extends React.Component<IProps> {
                                                           .myAccountSubjects &&
                                                         (form.errors
                                                           .myAccountSubjects as string) &&
-                                                        ''
+                                                        ""
                                                       }
                                                       onChange={(value) => {
                                                         // const subjs =
-                                                          // arrayHelpers.form
-                                                          //   .values
-                                                          //   .myAccountSubjects;
+                                                        // arrayHelpers.form
+                                                        //   .values
+                                                        //   .myAccountSubjects;
                                                         // if (subjs.length < 3) {
                                                         //   arrayHelpers.push(
                                                         //     value
                                                         //   );
                                                         // }
                                                         // else if (
-                                                          // subjs.length >= 3
+                                                        // subjs.length >= 3
                                                         // ) {
-                                                          arrayHelpers.replace(
-                                                            index,
-                                                            value
-                                                          );
+                                                        arrayHelpers.replace(
+                                                          index,
+                                                          value
+                                                        );
                                                         // }
                                                       }}
                                                     />
@@ -477,7 +478,7 @@ class ProfileRegistrationFormComponent extends React.Component<IProps> {
                         <span className={styles.textBold}>
                           Укажите пол аккаунтов для подписки:
                         </span>
-                        <Field name={'interestedInSex'}>
+                        <Field name={"interestedInSex"}>
                           {(props: FieldProps<string, IFormValues>) => {
                             const { field, form, meta } = props;
                             const { setValue } = form.getFieldHelpers(
@@ -491,15 +492,15 @@ class ProfileRegistrationFormComponent extends React.Component<IProps> {
                                   options={[
                                     {
                                       id: Sex.MALE,
-                                      text: 'Мужской',
+                                      text: "Мужской",
                                     },
                                     {
                                       id: Sex.FEMALE,
-                                      text: 'Женский',
+                                      text: "Женский",
                                     },
                                     {
                                       id: Sex.UNKNOWN,
-                                      text: 'Не важно',
+                                      text: "Не важно",
                                     },
                                   ]}
                                   value={meta.value}
@@ -521,7 +522,7 @@ class ProfileRegistrationFormComponent extends React.Component<IProps> {
                           Укажите 3 тематики, на которые вы хотели бы
                           подписаться:
                         </span>
-                        <FieldArray name={'interestedInSubjects'}>
+                        <FieldArray name={"interestedInSubjects"}>
                           {(arrayHelpers) => {
                             return (
                               <Fragment>
@@ -555,7 +556,7 @@ class ProfileRegistrationFormComponent extends React.Component<IProps> {
                                                   return (
                                                     <Select.Container
                                                       defaultText={
-                                                        'Выберите тематику'
+                                                        "Выберите тематику"
                                                       }
                                                       options={subjects.map(
                                                         (subject) => ({
@@ -577,7 +578,7 @@ class ProfileRegistrationFormComponent extends React.Component<IProps> {
                                                           .interestedInSubjects &&
                                                         (form.errors
                                                           .interestedInSubjects as string) &&
-                                                        ''
+                                                        ""
                                                       }
                                                       onChange={(value) => {
                                                         const subjs =
@@ -629,8 +630,8 @@ class ProfileRegistrationFormComponent extends React.Component<IProps> {
                     <div className={styles.section}>
                       <div className={styles.nextButton}>
                         <Button
-                          text={'Продолжить'}
-                          type={'submit'}
+                          text={"Продолжить"}
+                          type={"submit"}
                           disabled={isSubmitting}
                         />
                       </div>

@@ -27,7 +27,7 @@ $fontSize: 1.125rem;
 
     .group {
       .link:not(:first-child) {
-        margin-left: 1rem;
+        margin-left: 1.5rem;
       }
     }
   }
@@ -53,7 +53,7 @@ $fontSize: 1.125rem;
     &::placeholder {
       font-size: 1.125rem;
       color: #c4c4c4;
-      font-family: 'ProbaPro-ExtraLight';
+      font-family: "ProbaPro-ExtraLight";
     }
   }
 
@@ -82,7 +82,7 @@ $fontSize: 1.125rem;
 }
 
 .title {
-  font-family: 'ProximaNova-Bold';
+  font-family: "ProximaNova-Bold";
   font-size: 1.25rem;
   margin-bottom: 2.625rem;
 }
@@ -142,4 +142,8 @@ $fontSize: 1.125rem;
   &.red {
     background-color: #ee2e24;
   }
+}
+
+.socialLink:not(:first-child) {
+  margin-left: 10px;
 }

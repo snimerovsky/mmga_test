@@ -1,4 +1,4 @@
-@import '../../../variabales.scss';
+@import "../../../variabales.scss";
 
 $innerPadding: 15px 20px;
 
@@ -68,6 +68,10 @@ $innerPadding: 15px 20px;
       }
       &_Sum {
         margin: 20px 0;
+
+        .__BolderBoldFont {
+          color: black;
+        }
       }
     }
 
@@ -115,6 +119,7 @@ $innerPadding: 15px 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 20px;
 
     .ant-col:nth-child(2n) {
       @media screen and (max-width: 1600px) {
@@ -175,7 +180,7 @@ $innerPadding: 15px 20px;
             top: 0px;
             left: 50%;
             transform: translateX(-50%);
-            content: '';
+            content: "";
             width: 40px;
             height: 1px;
             background-color: $lightgrey;
@@ -250,4 +255,9 @@ $innerPadding: 15px 20px;
       margin: 0 6px;
     }
   }
+}
+
+.text {
+  color: #757575;
+  font-weight: "ProbaPro-ExtraLight";
 }

@@ -8,10 +8,15 @@
   padding: 0 15% 0 15%;
 }
 
+main {
+  width: max-content;
+}
+
 .tabs {
   display: flex;
   font-size: 3rem;
   margin-top: 6.25rem;
+  justify-content: space-between;
   font-family: "ProximaNova-Bold";
 }
 
@@ -19,10 +24,6 @@
   cursor: pointer;
   color: #ffffff;
   @extend %animate;
-
-  &:not(:first-child) {
-    margin-left: 3.4375rem;
-  }
 
   &.active {
     color: #222222;
@@ -37,4 +38,5 @@
 
 .formWrapper {
   margin-top: 2.5rem;
+  width: max-content;
 }

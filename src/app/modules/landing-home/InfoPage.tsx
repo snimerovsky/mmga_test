@@ -1,18 +1,18 @@
-import classNames from 'classnames';
-import React, { Component, Fragment } from 'react';
-import { withRoute } from 'react-router5';
-import { Router } from 'router5';
-import face2 from '../../../styles/sources/images/bk.svg';
-import face3 from '../../../styles/sources/images/bl.svg';
-import facesImg from '../../../styles/sources/images/faces.png';
-import face1 from '../../../styles/sources/images/lk.svg';
-import { MM, SP, WG } from '../../../assets/icons';
-import phoneImg from '../../../styles/sources/images/phone.svg';
-import face4 from '../../../styles/sources/images/smm.svg';
-import { Button } from '../../../ui/button';
-import { InputButton } from '../../../ui/input-button';
-import { RouteNameChoices, RouteNames } from '../router';
-import styles from './LandingHomePage.module.scss';
+import classNames from "classnames";
+import React, { Component, Fragment } from "react";
+import { withRoute } from "react-router5";
+import { Router } from "router5";
+import face2 from "../../../styles/sources/images/bk.svg";
+import face3 from "../../../styles/sources/images/bl.svg";
+import facesImg from "../../../styles/sources/images/faces.png";
+import face1 from "../../../styles/sources/images/lk.svg";
+import { MM, SP, WG } from "../../../assets/icons";
+import phoneImg from "../../../styles/sources/images/phone.svg";
+import face4 from "../../../styles/sources/images/smm.svg";
+import { Button } from "../../../ui/button";
+import { InputButton } from "../../../ui/input-button";
+import { RouteNameChoices, RouteNames } from "../router";
+import styles from "./LandingHomePage.module.scss";
 
 interface IProps {
   router: Router;
@@ -21,7 +21,7 @@ interface IProps {
 class InfoPageComponent extends Component<IProps> {
   navigateToRegistrationPage = () => {
     this.props.router.navigate(RouteNames[RouteNameChoices.registration], {
-      ref: 'rrreeef',
+      ref: "rrreeef",
     });
   };
 
@@ -40,7 +40,7 @@ class InfoPageComponent extends Component<IProps> {
                 </span>
                 <div className={styles.buttonWrapper}>
                   <Button
-                    text={'Начать работу'}
+                    text={"Начать работу"}
                     color={Button.Color.red}
                     onClick={this.navigateToRegistrationPage}
                   />
@@ -62,7 +62,7 @@ class InfoPageComponent extends Component<IProps> {
               </span>
               <div className={styles.buttonWrapper2}>
                 <Button
-                  text={'Бесплатная регистрация'}
+                  text={"Бесплатная регистрация"}
                   color={Button.Color.red}
                   onClick={this.navigateToRegistrationPage}
                 />
@@ -82,7 +82,7 @@ class InfoPageComponent extends Component<IProps> {
             <div className={styles.audienceFaces}>
               <div className={classNames(styles.face, styles.darkBlue)}>
                 <div className={styles.content}>
-                  <img src={face1} className={styles.img} alt={'face'} />
+                  <img src={face1} className={styles.img} alt={"face"} />
                   <div>
                     Личные <br /> аккаунты
                   </div>
@@ -90,7 +90,7 @@ class InfoPageComponent extends Component<IProps> {
               </div>
               <div className={classNames(styles.face, styles.blue)}>
                 <div className={styles.content}>
-                  <img src={face2} className={styles.img} alt={'face'} />
+                  <img src={face2} className={styles.img} alt={"face"} />
                   <div>
                     Бизнес <br /> аккаунты
                   </div>
@@ -98,13 +98,13 @@ class InfoPageComponent extends Component<IProps> {
               </div>
               <div className={classNames(styles.face, styles.red)}>
                 <div className={styles.content}>
-                  <img src={face3} className={styles.img} alt={'face'} />
+                  <img src={face3} className={styles.img} alt={"face"} />
                   <div>Блоггеры</div>
                 </div>
               </div>
               <div className={classNames(styles.face, styles.orange)}>
                 <div className={styles.content}>
-                  <img src={face4} className={styles.img} alt={'face'} />
+                  <img src={face4} className={styles.img} alt={"face"} />
                   <div>
                     SMM <br /> менеджеры
                   </div>

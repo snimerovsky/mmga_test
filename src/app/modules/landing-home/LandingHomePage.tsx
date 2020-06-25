@@ -1,17 +1,17 @@
-import { inject } from 'mobx-react';
-import React, { Component } from 'react';
-import { withRoute } from 'react-router5';
-import { Route, Router } from 'router5';
-import { Button } from '../../../ui/button';
-import { Footer } from '../../../ui/footer';
-import { Header } from '../../../ui/header';
-import { IStore } from '../../store';
-import { AuthStore } from '../authorization/stores/AuthStore';
-import { RouteNameChoices, RouteNames } from '../router';
-import { InfoPage } from './InfoPage';
-import styles from './LandingHomePage.module.scss';
-import { ProfileRegistrationForm } from './ProfileRegistrationForm';
-import Rules from './Rules';
+import { inject } from "mobx-react";
+import React, { Component } from "react";
+import { withRoute } from "react-router5";
+import { Route, Router } from "router5";
+import { Button } from "../../../ui/button";
+import { Footer } from "../../../ui/footer";
+import { Header } from "../../../ui/header";
+import { IStore } from "../../store";
+import { AuthStore } from "../authorization/stores/AuthStore";
+import { RouteNameChoices, RouteNames } from "../router";
+import { InfoPage } from "./InfoPage";
+import styles from "./LandingHomePage.module.scss";
+import { ProfileRegistrationForm } from "./ProfileRegistrationForm";
+import Rules from "./Rules";
 
 interface IProps {
   router: Router;
@@ -34,8 +34,8 @@ const Content = (props: { routeName: string }) => {
 @inject(({ authStore }: IStore) => ({ authStore }))
 class LandingHomePageComponent extends Component<IProps> {
   componentDidMount(): void {
-    const bodyEl = document.querySelector('body')!;
-    bodyEl.classList.add('is-landing');
+    const bodyEl = document.querySelector("body")!;
+    bodyEl.classList.add("is-landing");
   }
 
   navigateToRegistrationPage = () => {
@@ -64,11 +64,11 @@ class LandingHomePageComponent extends Component<IProps> {
           <div className={styles.headerWrapper}>
             <Header />
 
-            {path === '/profile-form' ? null : (
+            {path === "/profile-form" ? null : (
               <div className={styles.accountButtonWrapper}>
                 <div className={styles.accountButton}>
                   <Button
-                    text={'Личный кабинет'}
+                    text={"Личный кабинет"}
                     onClick={this.navigateToRegistrationPage}
                   />
                 </div>

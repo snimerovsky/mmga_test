@@ -1,4 +1,4 @@
-@import '../../../variabales.scss';
+@import "../../../variabales.scss";
 
 .WarningPopover-Container.__info {
   span {
@@ -22,20 +22,21 @@
 
   .user-wrapper {
     padding: 0 50px;
+    width: 100%;
   }
 
   &_StatusBlock {
     margin-top: 35px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, max-content));
+    grid-gap: 16px;
+    justify-content: center;
+    padding: initial;
     &_Item {
       height: 120px;
       width: 230px;
+      margin: 0 20px;
       margin-top: 20px;
-      &:not(:last-child) {
-        margin-right: 30px;
-      }
       background-color: #eee;
       border-radius: 15px;
       transition: ease 0.3s;
@@ -63,6 +64,7 @@
         box-shadow: none;
         svg {
           fill: #fff;
+          filter: brightness(0) invert(1);
         }
         span {
           color: #fff;

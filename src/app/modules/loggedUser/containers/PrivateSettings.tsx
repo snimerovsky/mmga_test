@@ -1,26 +1,26 @@
-import React, { useState, useEffect, useRef } from 'react';
-import clipboard from 'clipboard-polyfill';
-import './PrivateSettings.scss';
-import TitleHeader from '../components/TitleHeader';
-import Label from '../components/Label';
-import classNames from 'classnames';
-import { Input } from '../../../../ui/input';
-import { withApi } from '../../../../api/withApi';
+import React, { useState, useEffect, useRef } from "react";
+import clipboard from "clipboard-polyfill";
+import "./PrivateSettings.scss";
+import TitleHeader from "../components/TitleHeader";
+import Label from "../components/Label";
+import classNames from "classnames";
+import { Input } from "../../../../ui/input";
+import { withApi } from "../../../../api/withApi";
 
-import { InputWrapper } from '../../landing-home/InputWrapper';
-import { Gear } from '../../../../assets/icons';
-import { getIndicatorStatus } from '../../../../ui/Indicator/utils';
-import { Button, notification } from 'antd';
+import { InputWrapper } from "../../landing-home/InputWrapper";
+import { Gear } from "../../../../assets/icons";
+import { getIndicatorStatus } from "../../../../ui/Indicator/utils";
+import { Button, notification } from "antd";
 
 export const PrivateSettings = (props: any) => {
   const {
     api,
     user: { referrer, email, phone, username, email_confirmed },
   } = props;
-  const [referrerInput, setReferrer] = useState('');
-  const [emailInput, setEmail] = useState('');
-  const [phoneInput, setPhone] = useState('');
-  const [usernameInput, setUsername] = useState('');
+  const [referrerInput, setReferrer] = useState("");
+  const [emailInput, setEmail] = useState("");
+  const [phoneInput, setPhone] = useState("");
+  const [usernameInput, setUsername] = useState("");
 
   const [referrerInputActive, setReferrerActive] = useState(false);
   const [emailInputActive, setEmailActive] = useState(false);
@@ -29,7 +29,7 @@ export const PrivateSettings = (props: any) => {
   const ref = useRef<any>(null);
   const copyToClipboard = (e: any) => {
     clipboard.writeText(referrerInput);
-    notification.success({ message: 'Ссылка скопирована в буфер обмена' });
+    notification.success({ message: "Ссылка скопирована в буфер обмена" });
   };
 
   useEffect(() => {
@@ -41,9 +41,9 @@ export const PrivateSettings = (props: any) => {
 
   const sendConfirmData = (type: string) => {
     const message =
-      type === 'email'
+      type === "email"
         ? `Письмо с подтверждением было отправлено на ваш имейл`
-        : 'Смс с подтвержденмем было отправлено на ваш номер';
+        : "Смс с подтвержденмем было отправлено на ваш номер";
     try {
       notification.success({ message });
       api.sendInfoConfirmation({ email: emailInput, phone: phoneInput });
@@ -58,10 +58,10 @@ export const PrivateSettings = (props: any) => {
       </TitleHeader>
       <div className="user-wrapper">
         <div className="PrivateSettings-Container_Item">
-          <InputWrapper name={'name'} labelText={'Реферальная ссылка'}>
+          <InputWrapper name={"name"} labelText={"Реферальная ссылка"}>
             <Input
-              type={'text'}
-              name={'city'}
+              type={"text"}
+              name={"city"}
               indicator={{
                 status: getIndicatorStatus(true, undefined),
               }}
@@ -81,10 +81,10 @@ export const PrivateSettings = (props: any) => {
           </Button>
         </div>
         <div className="PrivateSettings-Container_Item">
-          <InputWrapper name={'name'} labelText={'Электронный адрес'}>
+          <InputWrapper name={"name"} labelText={"Электронный адрес"}>
             <Input
-              type={'text'}
-              name={'city'}
+              type={"text"}
+              name={"city"}
               indicator={{
                 status: getIndicatorStatus(true, undefined),
               }}
@@ -96,19 +96,19 @@ export const PrivateSettings = (props: any) => {
 
           <Button
             onClick={() => {
-              sendConfirmData('email');
+              sendConfirmData("email");
             }}
             className={classNames({ active: emailInputActive })}
             disabled={email_confirmed}
           >
-            {email_confirmed ? 'Подтверждено': 'Подтвердить'}
+            {email_confirmed ? "Подтверждено" : "Подтвердить"}
           </Button>
         </div>
         <div className="PrivateSettings-Container_Item">
-          <InputWrapper name={'name'} labelText={'Номер телефона'}>
+          <InputWrapper name={"name"} labelText={"Номер телефона"}>
             <Input
-              type={'text'}
-              name={'city'}
+              type={"text"}
+              name={"city"}
               indicator={{
                 status: getIndicatorStatus(true, undefined),
               }}
@@ -119,7 +119,7 @@ export const PrivateSettings = (props: any) => {
           </InputWrapper>
           <Button
             onClick={() => {
-              sendConfirmData('phone');
+              sendConfirmData("phone");
             }}
             className={classNames({ active: phoneInputActive })}
           >
@@ -127,10 +127,10 @@ export const PrivateSettings = (props: any) => {
           </Button>
         </div>
         <div className="PrivateSettings-Container_Item">
-          <InputWrapper name={'name'} labelText={'Имя аккаунта'}>
+          <InputWrapper name={"name"} labelText={"Имя аккаунта в сервисе"}>
             <Input
-              type={'text'}
-              name={'city'}
+              type={"text"}
+              name={"city"}
               indicator={{
                 status: getIndicatorStatus(true, undefined),
               }}

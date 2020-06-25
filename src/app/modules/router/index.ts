@@ -1,5 +1,5 @@
-import createRouter, { Route } from 'router5';
-import browserPlugin from 'router5-plugin-browser';
+import createRouter, { Route } from "router5";
+import browserPlugin from "router5-plugin-browser";
 
 /*
 const buildRouteName = (...routeNames: string[]) => {
@@ -8,28 +8,30 @@ const buildRouteName = (...routeNames: string[]) => {
 */
 
 export enum RouteNameChoices {
-  home = 'home',
-  rules = 'rules',
-  user = 'user',
-  tasks = 'tasks',
-  tutorial = 'tutorial',
+  home = "home",
+  rules = "rules",
+  user = "user",
+  tasks = "tasks",
+  tutorial = "tutorial",
 
-  crew = 'crew',
-  statuses = 'statuses',
-  finance = 'finance',
-  news = 'news',
-  chatting = 'chatting',
+  crew = "crew",
+  statuses = "statuses",
+  finance = "finance",
+  news = "news",
+  chatting = "chatting",
 
-  analytics = 'analytics',
-  conditions = 'conditions',
-  modering = 'modering',
-  authorization = 'authorization',
-  registration = 'registration',
-  registrationRef = 'registrationRef',
-  secretRegistration = 'secretRegistration',
-  profileRegistrationForm = 'profileRegistrationForm',
-  assignments = 'assignments',
-  privateSettings = 'privateSettings',
+  analytics = "analytics",
+  conditions = "conditions",
+  modering = "modering",
+  authorization = "authorization",
+  restoring = "restoring",
+  restore = "restore",
+  registration = "registration",
+  registrationRef = "registrationRef",
+  secretRegistration = "secretRegistration",
+  profileRegistrationForm = "profileRegistrationForm",
+  assignments = "assignments",
+  privateSettings = "privateSettings",
 }
 
 export const RouteNames = {
@@ -49,6 +51,8 @@ export const RouteNames = {
   [RouteNameChoices.analytics]: RouteNameChoices.analytics,
   [RouteNameChoices.user]: RouteNameChoices.user,
   [RouteNameChoices.authorization]: RouteNameChoices.authorization,
+  [RouteNameChoices.restoring]: RouteNameChoices.restoring,
+  [RouteNameChoices.restore]: RouteNameChoices.restore,
   [RouteNameChoices.registration]: RouteNameChoices.registration,
   [RouteNameChoices.registrationRef]: RouteNameChoices.registrationRef,
   [RouteNameChoices.secretRegistration]: RouteNameChoices.secretRegistration,
@@ -62,105 +66,115 @@ export const RouteNames = {
 const routes: Route[] = [
   {
     name: RouteNameChoices.home,
-    path: '/',
+    path: "/",
     children: [],
   },
   {
     name: RouteNameChoices.rules,
-    path: '/rules',
+    path: "/rules",
     children: [],
   },
   {
     name: RouteNameChoices.user,
-    path: '/user',
+    path: "/user",
     children: [],
   },
   {
     name: RouteNameChoices.tasks,
-    path: '/user/tasks',
+    path: "/user/tasks",
     children: [],
   },
   {
     name: RouteNameChoices.analytics,
-    path: '/user/analytics',
+    path: "/user/analytics",
     children: [],
   },
 
   {
     name: RouteNameChoices.tutorial,
-    path: '/user/tutorial',
+    path: "/user/tutorial",
     children: [],
   },
 
   {
     name: RouteNameChoices.crew,
-    path: '/user/crew',
+    path: "/user/crew",
     children: [],
   },
   {
     name: RouteNameChoices.statuses,
-    path: '/user/statuses',
+    path: "/user/statuses",
     children: [],
   },
   {
     name: RouteNameChoices.finance,
-    path: '/user/finance',
+    path: "/user/finance",
     children: [],
   },
   {
     name: RouteNameChoices.news,
-    path: '/user/news',
+    path: "/user/news",
     children: [],
   },
   {
     name: RouteNameChoices.chatting,
-    path: '/user/chatting',
+    path: "/user/chatting",
     children: [],
   },
 
   {
     name: RouteNameChoices.conditions,
-    path: '/conditions',
+    path: "/conditions",
     children: [],
   },
   {
     name: RouteNameChoices.modering,
-    path: '/modering',
+    path: "/modering",
     children: [],
   },
   {
     name: RouteNameChoices.profileRegistrationForm,
-    path: '/profile-form',
+    path: "/profile-form",
     children: [],
   },
   {
     name: RouteNameChoices.authorization,
-    path: '/authorization',
+    path: "/authorization",
+    children: [],
+  },
+  {
+    name: RouteNameChoices.restoring,
+    path: "/restoring",
+    children: [],
+  },
+  {
+    name: RouteNameChoices.restore,
+    path: "/restore",
     children: [],
   },
   {
     name: RouteNameChoices.registration,
-    path: '/registration',
+    path: "/registration",
     children: [],
   },
   {
     name: RouteNameChoices.registrationRef,
-    path: '/registration/:ref',
+    path: "/registration/:ref",
     children: [],
   },
   {
     name: RouteNameChoices.secretRegistration,
-    path: '/secret-registration',
+    path: "/secret-registration",
     children: [],
   },
   {
     name: RouteNameChoices.assignments,
-    path: '/user/assignments',
+    path: "/user/assignments",
     children: [],
   },
   {
     name: RouteNameChoices.privateSettings,
-    path: '/user/settings',
+    path: "/user/settings",
     children: [],
   },
 ];

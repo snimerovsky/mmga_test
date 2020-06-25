@@ -1,4 +1,4 @@
-@import '../../../variabales.scss';
+@import "../../../variabales.scss";
 
 .Header-Container {
   display: flex;
@@ -56,6 +56,12 @@
 
     &_SimpleText {
       font-size: 16px;
+      display: flex;
+      // justify-content: space-between;
+
+      .__GreenText {
+        color: $green;
+      }
     }
 
     &_Right {
@@ -78,6 +84,9 @@
       margin-left: 30px;
       height: 55px;
       width: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       cursor: pointer;
       svg {
         width: 25px;
@@ -100,4 +109,18 @@
       fill: #fff;
     }
   }
+}
+
+.icon {
+  outline: none !important;
+}
+
+.iconSize {
+  width: 40px;
+  height: 27px;
+  -webkit-filter: invert(56%) sepia(64%) saturate(796%) hue-rotate(174deg)
+    brightness(88%) contrast(89%);
+  filter: invert(56%) sepia(64%) saturate(796%) hue-rotate(174deg)
+    brightness(88%) contrast(89%);
+  margin-left: 25px;
 }

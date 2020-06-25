@@ -22,3 +22,54 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Arsenal-Bold";
+  src: url("./Arsenal-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Arsenal-BoldItalic";
+  src: url("./Arsenal-BoldItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Arsenal-Italic";
+  src: url("./Arsenal-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Arsenal-Regular";
+  src: url("./Arsenal-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ProbaPro-ExtraLight";
+  src: url("./ProbaPro-ExtraLight.ttf") format("truetype"),
+    url("./ProbaPro-ExtraLight.otf") format("opentype"),
+    url("./ProbaPro-ExtraLight.eot") format("openembedded-opentypetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ProbaPro-Regular";
+  src: url("./proba-pro-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Font-11096";
+  src: url("./11096.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}

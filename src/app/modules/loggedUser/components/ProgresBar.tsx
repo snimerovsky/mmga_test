@@ -1,5 +1,20 @@
-import React from 'react';
-import './ProgresBar.scss';
+import React, { useEffect, useState } from "react";
+import "./ProgresBar.scss";
+import { useTimer } from "react-timer-hook";
+
+function MyTimer(props: any) {
+  const { expiryTimestamp } = props;
+  const { minutes, hours } = useTimer({
+    expiryTimestamp,
+    onExpire: () => console.warn("onExpire called"),
+  });
+  return (
+    <h1 className={"timer"}>
+      {hours} <span className={"text"}>часа</span> {minutes}{" "}
+      <span className={"text"}>мин</span>
+    </h1>
+  );
+}
 
 export const ProgresBar = (props: any) => {
   const {
@@ -12,13 +27,15 @@ export const ProgresBar = (props: any) => {
   } = props;
 
   const skeleton = [];
+  const time = new Date();
+  time.setSeconds(time.getSeconds() + 600);
 
   for (let i = 0; i < total; i++) {
     skeleton.push(0);
   }
   return (
     <div className="ProgresBar-Container">
-      <span className="ProgresBar-Container_LeftLabel">{labeLeft || ''}</span>
+      <span className="ProgresBar-Container_LeftLabel">{labeLeft || ""}</span>
       <div className="ProgresBar-Container_Bar">
         {skeleton.map((elem, index) => {
           if (index < done)
@@ -27,7 +44,7 @@ export const ProgresBar = (props: any) => {
                 key={index}
                 style={{
                   width: `${80 / total}%`,
-                  backgroundColor: activeColor || 'green',
+                  backgroundColor: activeColor || "green",
                 }}
                 className="ProgresBar-Container_Bar-Item active"
               ></div>
@@ -43,19 +60,19 @@ export const ProgresBar = (props: any) => {
               ></div>
             );
         })}
-
         <span className="ProgresBar-Container_Bar_Label-Left">
           <span className="__BoldFont" style={{ color: activeColor }}>
             {done}
           </span>
           <span className="__BoldFont">
-            {'/ '}
+            {"/ "}
             {total}
           </span>
-          {labelTopLeft || ''}
+          {labelTopLeft || ""}
         </span>
         <span className="ProgresBar-Container_Bar_Label-Right">
-          {labelRightTop || ''}
+          <MyTimer expiryTimestamp={time} />
+          {labelRightTop || ""}
         </span>
       </div>
     </div>

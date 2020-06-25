@@ -1,42 +1,42 @@
-import { Field, FieldProps, Form, Formik } from 'formik';
-import React from 'react';
-import { withRoute } from 'react-router5';
-import { RouteContext } from 'react-router5/types/types';
-import * as Yup from 'yup';
-import { Api } from '../../../api';
-import { withApi } from '../../../api/withApi';
-import { Button } from '../../../ui/button';
-import Checkbox from '../../../ui/checkbox';
-import { getIndicatorStatus } from '../../../ui/Indicator/utils';
-import { Input } from '../../../ui/input';
-import { RouteNameChoices, RouteNames, router } from '../router';
-import { FieldWrapper } from './FieldWrapper';
-import { InputWrapper } from './InputWrapper';
-import { SelectError } from './SelectError';
-import classnames from 'classnames';
-import styles from './RegistrationForm.module.scss';
+import { Field, FieldProps, Form, Formik } from "formik";
+import React from "react";
+import { withRoute } from "react-router5";
+import { RouteContext } from "react-router5/types/types";
+import * as Yup from "yup";
+import { Api } from "../../../api";
+import { withApi } from "../../../api/withApi";
+import { Button } from "../../../ui/button";
+import Checkbox from "../../../ui/checkbox";
+import { getIndicatorStatus } from "../../../ui/Indicator/utils";
+import { Input } from "../../../ui/input";
+import { RouteNameChoices, RouteNames, router } from "../router";
+import { FieldWrapper } from "./FieldWrapper";
+import { InputWrapper } from "./InputWrapper";
+import { SelectError } from "./SelectError";
+import classnames from "classnames";
+import styles from "./RegistrationForm.module.scss";
 
 const registrationSchema = Yup.object().shape({
   email: Yup.string()
-    .email('Неверный формат имейла')
-    .required('Введите ваш имейл'),
+    .email("Неверный формат имейла")
+    .required("Введите ваш имейл"),
   password: Yup.string()
-    .min(6, 'Пароль слишком короткий!')
-    .max(50, 'Пароль слишком длинный!')
-    .required('Введи пароль'),
+    .min(6, "Пароль слишком короткий!")
+    .max(50, "Пароль слишком длинный!")
+    .required("Введи пароль"),
   referrer: Yup.string(),
   phone: Yup.string()
-    .required('Введите ваш телефон')
+    .required("Введите ваш телефон")
     .test(
-      'phoneNumberLengthIs10Digits',
-      'Неверный формат телефона',
-      (value: string = '') => {
+      "phoneNumberLengthIs10Digits",
+      "Неверный формат телефона",
+      (value: string = "") => {
         return value.length === 18;
       }
     )
     .required(),
-  agreement: Yup.boolean().oneOf([true], 'Вам нужно согласиться с правилами'),
-  login: Yup.string().required('Введите ваш логин'),
+  agreement: Yup.boolean().oneOf([true], "Вам нужно согласиться с правилами"),
+  login: Yup.string().required("Введите ваш логин"),
 });
 
 interface IFormValues {
@@ -60,17 +60,17 @@ function _RegistrationForm(props: IProps) {
 
   const paramUrl =
     path !== `/${RouteNames[RouteNameChoices.registration]}`
-      ? path.split(`/${RouteNames[RouteNameChoices.registration]}/`).join('')
-      : '';
+      ? path.split(`/${RouteNames[RouteNameChoices.registration]}/`).join("")
+      : "";
 
   return (
     <Formik<IFormValues>
       initialValues={{
-        email: '',
-        password: '',
+        email: "",
+        password: "",
         referrer: paramUrl,
-        phone: '',
-        login: '',
+        phone: "",
+        login: "",
         agreement: false,
       }}
       onSubmit={async (values, { setErrors }) => {
@@ -93,17 +93,17 @@ function _RegistrationForm(props: IProps) {
       {({ isSubmitting, setFieldValue, values }) => (
         <Form translate="" className={styles.RegistrationForm}>
           {paramUrl.length === 0 ? null : (
-            <Field name={'referrer'}>
+            <Field name={"referrer"}>
               {(props: FieldProps<string, IFormValues>) => {
                 const { field, meta } = props;
                 return (
                   <InputWrapper
-                    labelText={'Реферальная ссылка'}
+                    labelText={"Реферальная ссылка"}
                     name={field.name}
                   >
                     <Input
                       readOnly
-                      type={'text'}
+                      type={"text"}
                       indicator={{
                         status: getIndicatorStatus(true, meta.error),
                       }}
@@ -118,15 +118,15 @@ function _RegistrationForm(props: IProps) {
               }}
             </Field>
           )}
-          <Field name={'email'}>
+          <Field name={"email"}>
             {(props: FieldProps<string, IFormValues>) => {
               const { field, meta } = props;
               // console.log('meta.touched, meta.error', meta.touched, meta.error);
               return (
-                <InputWrapper name={field.name} labelText={'Электронный адрес'}>
+                <InputWrapper name={field.name} labelText={"Электронный адрес"}>
                   <Input
-                    type={'text'}
-                    placeholder={'name@e-mail.com'}
+                    type={"text"}
+                    placeholder={"name@e-mail.com"}
                     indicator={{
                       status: getIndicatorStatus(meta.touched, meta.error),
                     }}
@@ -141,27 +141,27 @@ function _RegistrationForm(props: IProps) {
             }}
           </Field>
           <FieldWrapper
-            type={'phone'}
-            name={'phone'}
-            labelText={'Номер телефона'}
+            type={"phone"}
+            name={"phone"}
+            labelText={"Номер телефона"}
             autocomplete={"off"}
             setFieldValue={setFieldValue}
-            placeholder={'+ 7 (___) __-__-__'}
+            placeholder={"+ 7 (___) __-__-__"}
           />
           <FieldWrapper
-            labelText={'Имя аккаунта'}
-            name={'login'}
+            labelText={"Имя аккаунта в сервисе"}
+            name={"login"}
             setFieldValue={setFieldValue}
-            type={'text'}
-            placeholder={'546cvf44'}
+            type={"text"}
+            placeholder={"546cvf44"}
           />
           <FieldWrapper
-            labelText={'Пароль'}
-            name={'password'}
+            labelText={"Пароль"}
+            name={"password"}
             setFieldValue={setFieldValue}
-            type={'password'}
+            type={"password"}
           />
-          <Field name={'agreement'}>
+          <Field name={"agreement"}>
             {(props: FieldProps<string, IFormValues>) => {
               const { form, field, meta } = props;
               const { setValue } = form.getFieldHelpers(field.name);
@@ -178,7 +178,7 @@ function _RegistrationForm(props: IProps) {
                     text={
                       <div>
                         Создавая аккаунт, вы соглашаетесь с
-                        <a href="conditions">Условиями использования</a> и{' '}
+                        <a href="conditions">Условиями использования</a> и{" "}
                         <a href="rules">Правилами</a> конфиденциальности MMGA"
                       </div>
                     }
@@ -191,8 +191,8 @@ function _RegistrationForm(props: IProps) {
           <div className={styles.buttonWrapper}>
             <div className={styles.button}>
               <Button
-                text={'Регистрация'}
-                type={'submit'}
+                text={"Регистрация"}
+                type={"submit"}
                 // disabled={isSubmitting || !values.agreement}
               />
             </div>

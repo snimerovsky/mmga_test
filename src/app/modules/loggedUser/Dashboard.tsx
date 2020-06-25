@@ -13,7 +13,12 @@ export const Dashboard = ({ children, user, router }: any) => {
     <div className="Dashboard-Container">
       <div className="Dashboard-Container_wrapper">
         <Row>
-          <Col className="Dashboard-Container_wrapper_Logo" md={5}>
+          <Col
+            className="Dashboard-Container_wrapper_Logo"
+            md={5}
+            sm={5}
+            xs={6}
+          >
             <Logo
               onClick={() => {
                 router.navigate(RouteNames[RouteNameChoices.home]);
@@ -21,16 +26,16 @@ export const Dashboard = ({ children, user, router }: any) => {
             />
           </Col>
 
-          <Col md={19}>
+          <Col md={19} sm={19} xs={18}>
             <Header user={user}></Header>
           </Col>
         </Row>
 
         <Row>
-          <Col md={5}>
+          <Col md={5} sm={5} xs={6}>
             <Sidebar />
           </Col>
-          <Col className="Dashboard-Container_Content" md={19}>
+          <Col className="Dashboard-Container_Content" md={19} sm={19} xs={18}>
             {children}
           </Col>
         </Row>

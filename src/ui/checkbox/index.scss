@@ -1,12 +1,26 @@
 .Checkbox-Container {
   font-size: 1.125rem;
-  display: flex;
+  display: flex !important;
+
   .ant-checkbox {
     margin-right: 1rem;
+    height: max-content !important;
+    display: flex !important;
     & > input {
       display: block;
-      height: 1.6rem;
-      width: 1.55rem;
     }
   }
+  .ant-checkbox-inner {
+    border-radius: 50% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}
+
+.ant-checkbox-checked::after {
+  border-radius: 50% !important;
+}
+.text {
+  font-weight: 600;
 }

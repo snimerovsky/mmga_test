@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import './Assignment.scss';
-import TitleHeader from '../components/TitleHeader';
-import { Key } from '../../../../assets/icons';
-import ProgresBar from '../components/ProgresBar';
-import Label from '../components/Label';
-import TaskCard from '../components/TaskCard';
-import { Col, Row, Button, notification, message } from 'antd';
-import { withApi } from '../../../../api/withApi';
-import { withRoute } from 'react-router5';
-import { RouteNameChoices, RouteNames, router } from '../../router';
+import React, { useState, useEffect } from "react";
+import "./Assignment.scss";
+import TitleHeader from "../components/TitleHeader";
+import { Key } from "../../../../assets/icons";
+import ProgresBar from "../components/ProgresBar";
+import Label from "../components/Label";
+import TaskCard from "../components/TaskCard";
+import { Col, Row, Button, notification, message } from "antd";
+import { withApi } from "../../../../api/withApi";
+import { withRoute } from "react-router5";
+import { RouteNameChoices, RouteNames, router } from "../../router";
+import lockImg from "../../../../styles/sources/images/icons/lock.svg";
 
-import { inject, observer } from 'mobx-react';
-import {Api} from "../../../../api";
-import {AuthStore} from "../../authorization/stores/AuthStore";
+import { inject, observer } from "mobx-react";
+import { Api } from "../../../../api";
+import { AuthStore } from "../../authorization/stores/AuthStore";
 
 interface IProps {
   api: Api;
@@ -54,7 +55,7 @@ export const Assignment = (props: IProps) => {
   }, []);
 
   useEffect(() => {
-    console.log('user', user);
+    console.log("user", user);
   }, [user]);
   useEffect(() => {
     if (
@@ -67,7 +68,7 @@ export const Assignment = (props: IProps) => {
 
   const onSubmit = async () => {
     if (!completed) {
-      notification.error({ message: 'Выполните все задания', duration: 5 });
+      notification.error({ message: "Выполните все задания", duration: 5 });
       return;
     }
     try {
@@ -88,6 +89,11 @@ export const Assignment = (props: IProps) => {
 
   return (
     <div className="Tasks-Container">
+      <div className="lockBox">
+        <div className="imgBox">
+          <img src={lockImg} alt={"lock"} className="imgLock" />
+        </div>
+      </div>
       <TitleHeader>
         <Key />
         <span>
@@ -102,12 +108,11 @@ export const Assignment = (props: IProps) => {
             <div className="Tasks-Container_Container_ProgresBar">
               <ProgresBar
                 labeLeft="Выполнено"
-                activeColor={'#abd029'}
+                activeColor={"#abd029"}
                 total={pictures.length}
                 done={completedTasks}
               />
             </div>
-
             <Row
               gutter={[30, 30]}
               className="Tasks-Container_Container_Pictures"
@@ -124,7 +129,6 @@ export const Assignment = (props: IProps) => {
                 </Col>
               ))}
             </Row>
-
             <Button
               className="Tasks-Container_Container_Pictures_Button"
               type="primary"

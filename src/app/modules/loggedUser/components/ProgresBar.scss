@@ -1,4 +1,4 @@
-@import '../../../variabales.scss';
+@import "../../../variabales.scss";
 
 .ProgresBar-Container {
   font-size: 18px;
@@ -52,5 +52,14 @@
         }
       }
     }
+  }
+}
+.timer {
+  font-family: Proxima-Nova;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.65);
+
+  .text {
+    color: #ccc;
   }
 }

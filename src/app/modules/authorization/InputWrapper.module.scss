@@ -1,11 +1,16 @@
 .Input {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.Input:not(:first-child) {
+  margin-top: 20px !important;
 }
 
 .label {
   width: 15rem;
-  line-height: 3.125rem;
   color: #333333;
   font-size: 1.125rem;
+  font-weight: 600;
+  font-family: "ProbaPro-ExtraLight";
 }

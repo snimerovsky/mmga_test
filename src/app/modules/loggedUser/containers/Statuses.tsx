@@ -16,6 +16,7 @@ import {
   Bank,
   Group,
   Portfolio,
+  Startup,
 } from "../../../../assets/icons";
 
 const warningPopover = () => {
@@ -35,9 +36,13 @@ const infoPopover = (children: any, status: any) => {
   const content = (
     <div className="WarningPopover-Container __info">
       <span>{status?.content}</span>
-      <a href={status?.link} target="_blank">
-        Подробнее
-      </a>
+      {status?.link ? (
+        <a href={status?.link} target="_blank">
+          Подробнее
+        </a>
+      ) : (
+        <></>
+      )}
     </div>
   );
   return <Popover content={content}>{children}</Popover>;
@@ -61,11 +66,10 @@ const statusBlock = (status: any, index: any, active: any) => {
 
 const statuses = [
   {
-    icon: <Rocket />,
+    icon: <Startup />,
     text: "Новичок",
     content:
-      "Данный статус вы можете получить после выполнение первого задание. ",
-    link: "https://about.mmga.ru/statusy/novichok/",
+      "Данный статус присваиватся при регистрации / авторизации в сервисе. ",
   },
   {
     icon: <Rocket />,
@@ -111,13 +115,13 @@ const statuses = [
   {
     icon: <Bank />,
     text: "Миллиардер",
-    content: "Данный статус является коммерческим",
+    content: "Данный статус является коммерческим.",
     link: "https://about.mmga.ru/statusy/milliarder/",
   },
 ];
 
 export const Statuses = (props: any) => {
-  const [activeStatus, _] = useState(0);
+  const [activeStatus, _] = useState(props?.user?.rang - 1);
 
   const warnings = props?.user?.warnings;
 
@@ -133,6 +137,7 @@ export const Statuses = (props: any) => {
             infoPopover(statusBlock(status, index, activeStatus), status)
           )}
         </div>
+
         {warnings > 0 && (
           <div className="Tasks-Container_Container_Progress-Warning">
             <ProgresBar

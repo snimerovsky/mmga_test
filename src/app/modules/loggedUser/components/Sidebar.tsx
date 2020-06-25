@@ -2,6 +2,7 @@ import React from "react";
 import { Link, withRoute } from "react-router5";
 import "./Sidebar.scss";
 import classnames from "classnames";
+import Badge from "./Badge";
 
 import {
   Mark,
@@ -25,6 +26,7 @@ export const Sidebar = (props: any) => {
       to: "tasks",
       icon: <Mark />,
       active: routeName === "tasks",
+      notifications: true,
     },
     // {
     //   title: "Аналитика",
@@ -107,6 +109,7 @@ export const Sidebar = (props: any) => {
                   {item.icon}
                   <span>{item.title}</span>
                 </Link>
+                {item.notifications ? <Badge /> : <></>}
               </li>
             );
           })}

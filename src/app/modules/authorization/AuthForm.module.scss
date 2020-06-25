@@ -10,5 +10,19 @@
 
 .button {
   width: 15rem;
+}
+
+.buttonBox {
+  display: flex;
+  flex-direction: column;
   align-self: flex-end;
+  align-items: flex-end;
+
+  p {
+    margin-top: -1.5rem;
+    padding-bottom: 20px;
+    margin-right: 1rem;
+    cursor: pointer;
+    user-select: none;
+  }
 }

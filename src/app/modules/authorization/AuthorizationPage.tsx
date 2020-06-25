@@ -10,6 +10,7 @@ import { AuthForm } from "./AuthForm";
 import styles from "./AuthorizationPage.module.scss";
 import { RegistrationForm } from "./RegistrationForm";
 import { SecretRegistrationForm } from "./SecretRegistrationForm";
+import { RestoringForm } from "./RestoringForm";
 
 interface IProps {
   route: Route;
@@ -66,7 +67,7 @@ class AuthorizationPageComponent extends Component<IProps> {
         <Header />
         <main>
           <div className={styles.tabs}>
-            {/* <div
+            <div
               className={classNames(styles.tabItem, {
                 [styles.active]:
                   this.active === RouteNames[RouteNameChoices.authorization],
@@ -78,7 +79,7 @@ class AuthorizationPageComponent extends Component<IProps> {
               )}
             >
               Авторизация
-            </div> */}
+            </div>
 
             <div
               className={classNames(styles.tabItem, {

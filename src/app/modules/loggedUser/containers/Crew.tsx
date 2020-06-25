@@ -1,14 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react';
-import clipboard from 'clipboard-polyfill';
-import './Crew.scss';
-import { withApi } from '../../../../api/withApi';
-import Label from '../components/Label';
-import TitleHeader from '../components/TitleHeader';
-import Collapse from '../components/Collapse';
-import Avatar from '../components/Avatar';
-import { Team, Megaphone, Group, Running } from '../../../../assets/icons';
+import React, { useState, useEffect, useRef } from "react";
+import clipboard from "clipboard-polyfill";
+import "./Crew.scss";
+import { withApi } from "../../../../api/withApi";
+import Label from "../components/Label";
+import TitleHeader from "../components/TitleHeader";
+import Collapse from "../components/Collapse";
+import Avatar from "../components/Avatar";
+import { Team, Group } from "../../../../assets/icons";
+import Running from "../../../../assets/icons/Running.png";
+import Megaphone from "../../../../assets/icons/Megaphone.png";
 
-import { Col, Row, Button, notification, Input } from 'antd';
+import { Col, Row, Button, notification, Input } from "antd";
 
 const invites = [
   {
@@ -26,7 +28,7 @@ export const Crew = (props: any) => {
   const { user, authStore, api } = props;
   const crewStatInit = { all: 0, invited: 0, invited_active: 0 };
   const [crewStat, setCrewStat] = useState<any>(crewStatInit);
-  const [referrer, setReferrer] = useState('');
+  const [referrer, setReferrer] = useState("");
 
   const [invited, setInvited] = useState<any>(invites);
 
@@ -36,12 +38,12 @@ export const Crew = (props: any) => {
     const fetchData = async () => {
       const team = await api?.getTeam();
       setCrewStat({ ...crewStat, ...team.data });
-      console.log('team.data', team.data);
+      console.log("team.data", team.data);
       const newInvtedState = Object.entries(team.data)
         .map(([key, value]: any) => {
-          console.log('key', key);
-          if (key.indexOf('rang') > -1) {
-            return { rang: key.replace('rang', ''), invited: value };
+          console.log("key", key);
+          if (key.indexOf("rang") > -1) {
+            return { rang: key.replace("rang", ""), invited: value };
           } else return null;
         })
         .filter((e: any) => e !== null)
@@ -49,7 +51,7 @@ export const Crew = (props: any) => {
 
       setInvited(newInvtedState);
 
-      console.log('newInvtedState', newInvtedState);
+      console.log("newInvtedState", newInvtedState);
     };
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -61,7 +63,7 @@ export const Crew = (props: any) => {
 
   const copyToClipboard = (e: any) => {
     clipboard.writeText(referrer);
-    notification.success({ message: 'Ссылка скопирована в буфер обмена' });
+    notification.success({ message: "Ссылка скопирована в буфер обмена" });
   };
 
   return (
@@ -97,12 +99,12 @@ export const Crew = (props: any) => {
               city={
                 crewStat?.invited_by?.city
                   ? crewStat?.invited_by?.city
-                  : 'Москва'
+                  : "Москва"
               }
               name={
                 crewStat?.invited_by?.login
                   ? crewStat?.invited_by?.login
-                  : 'Александр Гаврилов'
+                  : "Александр Гаврилов"
               }
             />
           </div>
@@ -120,7 +122,7 @@ export const Crew = (props: any) => {
             </span>
           </div>
           <div className="Crew-Container_Stat-Section_Item">
-            <Megaphone />
+            <img src={Megaphone} alt="Megaphone" className="iconCrew" />
             <span className="Crew-Container_Stat-Section_Item_Number __invited __BoldFont">
               {crewStat.invited}
             </span>
@@ -129,7 +131,7 @@ export const Crew = (props: any) => {
             </span>
           </div>
           <div className="Crew-Container_Stat-Section_Item">
-            <Running />
+            <img src={Running} alt="Runnnig" className="iconCrew" />
             <span className="Crew-Container_Stat-Section_Item_Number __invitedActive __BoldFont">
               {crewStat.invited_active}
             </span>

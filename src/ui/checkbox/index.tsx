@@ -11,7 +11,7 @@ const CheckboxComp = (props: any) => {
       className="Checkbox-Container"
       onChange={(e) => onChange(e.target.checked)}
     >
-      {text}
+      <div className="text">{text}</div>
     </Checkbox>
   );
 };

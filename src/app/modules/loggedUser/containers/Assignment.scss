@@ -1,4 +1,28 @@
 .Tasks-Container {
   background-color: #fff;
   height: 100%;
+
+  .lockBox {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    width: 3px;
+    background-color: #ee2e24;
+
+    .imgBox {
+      position: absolute;
+      background-color: #ee2e24;
+      border-radius: 50%;
+      display: flex;
+      z-index: 2;
+      padding: 5px;
+      margin-left: -14px;
+      margin-top: 15rem;
+      height: min-content !important;
+      .imgLock {
+        width: 20px;
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
 }

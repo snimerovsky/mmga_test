@@ -1,0 +1,85 @@
+.back {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+}
+
+.box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 101;
+  .modalBox {
+    position: relative;
+    background-color: white;
+    padding: 40px;
+    padding-top: 35px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .close {
+      position: absolute;
+      top: -1rem;
+      right: 10px;
+      cursor: pointer;
+
+      background-color: #2b64b0;
+      border-radius: 50%;
+      padding: 3px;
+      img {
+        filter: brightness(0) invert(1);
+        width: 23px;
+      }
+    }
+
+    .title {
+      font-family: "ProximaNova-Bold";
+      font-size: 1.9rem;
+    }
+
+    .confirmImg {
+      width: 80px;
+      padding: 25px 0;
+    }
+
+    .description {
+      font-family: "ProbaPro-ExtraLight";
+      max-width: 20rem;
+      text-align: center;
+      font-size: 1rem;
+      color: black;
+    }
+
+    .emailText {
+      padding-top: 2rem;
+      color: black;
+      font-size: 1rem;
+    }
+
+    .RestoreForm {
+      display: flex;
+      width: 100%;
+      padding-top: 1rem;
+
+      .fieldInput {
+        padding-right: 10px;
+        width: 18rem;
+      }
+
+      .button {
+        padding: 0 25px;
+      }
+    }
+  }
+}
